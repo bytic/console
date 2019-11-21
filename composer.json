@@ -2,13 +2,16 @@
   "name": "bytic/console",
   "description": "ByTIC Console package.",
   "type": "library",
-  "keywords": [  ],
+  "keywords": [],
   "license": "MIT",
   "authors": [
     {
       "name": "Gabriel Solomon",
       "email": "hello@gabrielsolomon.ro"
     }
+  ],
+  "bin": [
+    "bin/bytic"
   ],
   "require": {
     "php": "^7.2",

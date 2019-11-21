@@ -1,7 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e3ea4456-5474-4d7b-9f6e-8f2c1f9bd1fb" name="Default Changelist" comment="" />
+    <list default="true" id="e3ea4456-5474-4d7b-9f6e-8f2c1f9bd1fb" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/dictionaries/Solomon.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bootstrap/autoload.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Application/DetectBinary.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Application/HasBootstrappers.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Support/ProcessUtils.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/bootstrap.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/fixtures/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/src/AbstractTest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/src/Application/HasBootstrappersTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/bytic" beforeDir="false" afterPath="$PROJECT_DIR$/bin/bytic" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Application.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application.php" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -16,7 +30,7 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="PhpWorkspaceProjectConfiguration">
+  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP 7.2">
     <include_path>
       <path value="$PROJECT_DIR$/vendor/sebastian/code-unit-reverse-lookup" />
       <path value="$PROJECT_DIR$/vendor/sebastian/comparator" />
@@ -66,7 +80,7 @@
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/tests/src" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -79,14 +93,36 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="H:\webdev\www\libraries\bytic\console\tests\src" />
+      <recent name="H:\webdev\www\libraries\bytic\console\tests\fixtures" />
+      <recent name="H:\webdev\www\libraries\bytic\console\tests" />
       <recent name="D:\webdev\libraries\bytic\console" />
     </key>
   </component>
-  <component name="RunManager">
-    <configuration name="phpunit.xml.dist" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
-      <TestRunner scope="XML" />
+  <component name="RunManager" selected="PHPUnit.tests">
+    <configuration name="HasBootstrappersTest" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="ByTIC\Console\Tests\Application\HasBootstrappersTest" configuration_file="$PROJECT_DIR$/phpunit.xml.dist" file="$PROJECT_DIR$/tests/src/Application/HasBootstrappersTest.php" scope="Class" />
       <method v="2" />
     </configuration>
+    <configuration name="phpunit.xml.dist" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
+      <TestRunner directory="$PROJECT_DIR$/tests/src" scope="XML" />
+      <method v="2" />
+    </configuration>
+    <configuration name="tests" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner configuration_file="$PROJECT_DIR$/phpunit.xml.dist" directory="$PROJECT_DIR$/tests" />
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="PHPUnit.phpunit.xml.dist" />
+      <item itemvalue="PHPUnit.HasBootstrappersTest" />
+      <item itemvalue="PHPUnit.tests" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="PHPUnit.tests" />
+        <item itemvalue="PHPUnit.HasBootstrappersTest" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="ServiceViewManager">
     <option name="viewStates">
@@ -114,6 +150,8 @@
       <workItem from="1572356186765" duration="1194000" />
       <workItem from="1572427874203" duration="588000" />
       <workItem from="1574170074632" duration="214000" />
+      <workItem from="1574171853380" duration="556000" />
+      <workItem from="1574356348704" duration="4969000" />
     </task>
     <servers />
   </component>
@@ -134,6 +172,54 @@
     </option>
   </component>
   <component name="WindowStateProjectService">
+    <state x="644" y="140" width="680" height="760" key="#HasBootstrappersTest" timestamp="1574362471558">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="644" y="140" width="680" height="760" key="#HasBootstrappersTest/0.0.1920.1040/-1440.0.1440.860@0.0.1920.1040" timestamp="1574362471558" />
+    <state x="674" y="110" key="#PHP" timestamp="1574362462076">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="674" y="110" key="#PHP/0.0.1920.1040/-1440.0.1440.860@0.0.1920.1040" timestamp="1574362462076" />
+    <state x="414" y="174" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1574362497238">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="414" y="174" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040/-1440.0.1440.860@0.0.1920.1040" timestamp="1574362497238" />
+    <state x="740" y="274" key="FileChooserDialogImpl" timestamp="1574362486204">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="740" y="274" key="FileChooserDialogImpl/0.0.1920.1040/-1440.0.1440.860@0.0.1920.1040" timestamp="1574362486204" />
+    <state width="1860" height="271" key="GridCell.Tab.0.bottom" timestamp="1574362679531">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1860" height="271" key="GridCell.Tab.0.bottom/0.0.1920.1040/-1440.0.1440.860@0.0.1920.1040" timestamp="1574362679531" />
+    <state width="1860" height="271" key="GridCell.Tab.0.center" timestamp="1574362679531">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1860" height="271" key="GridCell.Tab.0.center/0.0.1920.1040/-1440.0.1440.860@0.0.1920.1040" timestamp="1574362679531" />
+    <state width="1860" height="271" key="GridCell.Tab.0.left" timestamp="1574362679531">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1860" height="271" key="GridCell.Tab.0.left/0.0.1920.1040/-1440.0.1440.860@0.0.1920.1040" timestamp="1574362679531" />
+    <state width="1860" height="271" key="GridCell.Tab.0.right" timestamp="1574362679531">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1860" height="271" key="GridCell.Tab.0.right/0.0.1920.1040/-1440.0.1440.860@0.0.1920.1040" timestamp="1574362679531" />
+    <state width="1860" height="335" key="GridCell.Tab.1.bottom" timestamp="1574362675110">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1860" height="335" key="GridCell.Tab.1.bottom/0.0.1920.1040/-1440.0.1440.860@0.0.1920.1040" timestamp="1574362675110" />
+    <state width="1860" height="335" key="GridCell.Tab.1.center" timestamp="1574362675110">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1860" height="335" key="GridCell.Tab.1.center/0.0.1920.1040/-1440.0.1440.860@0.0.1920.1040" timestamp="1574362675110" />
+    <state width="1860" height="335" key="GridCell.Tab.1.left" timestamp="1574362675110">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1860" height="335" key="GridCell.Tab.1.left/0.0.1920.1040/-1440.0.1440.860@0.0.1920.1040" timestamp="1574362675110" />
+    <state width="1860" height="335" key="GridCell.Tab.1.right" timestamp="1574362675110">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1860" height="335" key="GridCell.Tab.1.right/0.0.1920.1040/-1440.0.1440.860@0.0.1920.1040" timestamp="1574362675110" />
     <state x="461" y="161" key="SettingsEditor" timestamp="1574170149169">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
