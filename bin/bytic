@@ -3,7 +3,6 @@
 
 require dirname(__DIR__) . '/bootstrap/autoload.php';
 
-use Symfony\Component\Console\Application;
 
 $app = new Application('BYTIC Console', 'v1.0.0');
 

@@ -10,7 +10,13 @@ $autoload = [
 
 foreach ($autoload as $path) {
     if (file_exists($path)) {
-        return require $path;
+        define('BYTIC_CONSOLE_COMPOSER_INSTALL', $path);
+        define('BYTIC_CONSOLE_ROOT_DIR', realpath(dirname($file) . '/..'));
+        break;
     }
 }
-return false;
+unset($path);
+
+if (!defined('BYTIC_CONSOLE_COMPOSER_INSTALL')) {
+    throw new \Exception('Could not resolve path to vendor/autoload.php');
+}

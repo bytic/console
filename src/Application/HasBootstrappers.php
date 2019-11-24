@@ -40,5 +40,4 @@ trait HasBootstrappers
             $bootstrapper($this);
         }
     }
-
 }
