@@ -50,6 +50,9 @@ class ServiceProvidersLoader extends AbstractLoader
      */
     protected function loadCommandsFromProvider($provider)
     {
+        if (method_exists($provider, 'getCommands')) {
+            return $provider->getCommands();
+        }
         return [];
     }
 }

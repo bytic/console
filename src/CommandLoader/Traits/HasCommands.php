@@ -2,8 +2,8 @@
 
 namespace ByTIC\Console\CommandLoader\Traits;
 
-use ByTIC\Console\Command;
-use \Symfony\Component\Console\Command\Command as SymfonyCommand;
+use Closure;
+use Symfony\Component\Console\Command\Command as SymfonyCommand;
 
 /**
  * Trait HasCommands
@@ -49,8 +49,9 @@ trait HasCommands
     public function resolveCommands($commands)
     {
         $commands = is_array($commands) ? $commands : func_get_args();
+
         foreach ($commands as $command) {
-            $this->resolve($command);
+            $this->addCommand($this->resolve($command));
         }
         return $this;
     }
@@ -63,11 +64,13 @@ trait HasCommands
      */
     public function resolve($command)
     {
+        if ($command instanceof Closure) {
+            return $command();
+        }
         if (is_string($command)) {
             /** @var SymfonyCommand $command */
             $command = new $command();
         }
-        $this->addCommand($command);
         return $command;
     }
 }

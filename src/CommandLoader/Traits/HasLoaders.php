@@ -35,7 +35,7 @@ trait HasLoaders
         foreach ($loaders as $loader) {
             $commands = array_merge($commands, $loader->getCommands());
         }
-        $this->setCommands($commands);
+        $this->resolveCommands($commands);
     }
 
     /**
