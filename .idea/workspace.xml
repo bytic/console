@@ -1,15 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e3ea4456-5474-4d7b-9f6e-8f2c1f9bd1fb" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/tests/src/CommandTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/console.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/console.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/bytic" beforeDir="false" afterPath="$PROJECT_DIR$/bin/bytic" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bootstrap/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/bootstrap/app.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bootstrap/autoload.php" beforeDir="false" afterPath="$PROJECT_DIR$/bootstrap/autoload.php" afterDir="false" />
-    </list>
+    <list default="true" id="e3ea4456-5474-4d7b-9f6e-8f2c1f9bd1fb" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -138,7 +130,7 @@
       <option name="presentableId" value="Default" />
       <updated>1572262776782</updated>
       <workItem from="1572262778305" duration="3486000" />
-      <workItem from="1574672634481" duration="1284000" />
+      <workItem from="1574672634481" duration="1584000" />
     </task>
     <servers />
   </component>
@@ -157,5 +149,8 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/console@tests.xml" NAME="tests Coverage Results" MODIFIED="1574674215377" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="PhpCoverage" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>

@@ -14,7 +14,7 @@ class ServiceProvidersLoader extends AbstractLoader
     /**
      * @var AbstractServiceProvider[]|ProviderRepository
      */
-    protected static $providers;
+    protected static $providers = [];
 
     /**
      * @return AbstractServiceProvider[]|ProviderRepository
