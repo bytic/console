@@ -12,7 +12,7 @@ if (defined('BYTIC_CONSOLE_ROOT_DIR')) {
         $app->registerConfiguredProviders();
         /** @var Container $container */
         $container = $app->getContainer();
-        \ByTIC\Console\CommandLoader\Loaders\ServiceProvidersLoader::setProviders($container->getProviders());
+        \ByTIC\Console\CommandLoader\Loaders\ServiceProvidersLoader::setProvidersFromContainer($container);
     }
 }
 /** @var Container $container */

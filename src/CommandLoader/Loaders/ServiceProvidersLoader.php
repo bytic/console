@@ -2,6 +2,7 @@
 
 namespace ByTIC\Console\CommandLoader\Loaders;
 
+use Nip\Container\Container;
 use Nip\Container\ServiceProvider\AbstractServiceProvider;
 use Nip\Container\ServiceProvider\ProviderRepository;
 
@@ -22,6 +23,20 @@ class ServiceProvidersLoader extends AbstractLoader
     public static function getProviders(): array
     {
         return self::$providers;
+    }
+
+    /**
+     * @param Container $container
+     */
+    public static function setProvidersFromContainer(Container $container): void
+    {
+        $providers = $container->getProviders();
+        if ($providers instanceof ProviderRepository) {
+            static::setProviders($providers->getProviders());
+            return;
+        }
+        static::setProviders($providers);
+        return;
     }
 
     /**
