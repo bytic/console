@@ -2,19 +2,21 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e3ea4456-5474-4d7b-9f6e-8f2c1f9bd1fb" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/tests/src/CommandLoader/Loaders/ServiceProvidersLoaderTest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/src/CommandTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/console.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/console.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/CommandLoader/Loaders/ServiceProvidersLoader.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/CommandLoader/Loaders/ServiceProvidersLoader.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/CommandLoader/Traits/HasCommands.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/CommandLoader/Traits/HasCommands.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/CommandLoader/Traits/HasLoaders.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/CommandLoader/Traits/HasLoaders.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/fixtures/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/bytic" beforeDir="false" afterPath="$PROJECT_DIR$/bin/bytic" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bootstrap/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/bootstrap/app.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bootstrap/autoload.php" beforeDir="false" afterPath="$PROJECT_DIR$/bootstrap/autoload.php" afterDir="false" />
     </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
+  <component name="ComposerSettings" synchronizationState="SYNCHRONIZE">
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
     <execution>
       <executable />
@@ -23,60 +25,56 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="PhpDebugGeneral" listening_started="true" />
   <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP 7.2">
     <include_path>
-      <path value="$PROJECT_DIR$/vendor/sebastian/code-unit-reverse-lookup" />
-      <path value="$PROJECT_DIR$/vendor/sebastian/comparator" />
-      <path value="$PROJECT_DIR$/vendor/doctrine/instantiator" />
-      <path value="$PROJECT_DIR$/vendor/sebastian/exporter" />
-      <path value="$PROJECT_DIR$/vendor/sebastian/global-state" />
-      <path value="$PROJECT_DIR$/vendor/sebastian/diff" />
-      <path value="$PROJECT_DIR$/vendor/sebastian/environment" />
-      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-mbstring" />
-      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-php73" />
-      <path value="$PROJECT_DIR$/vendor/symfony/console" />
-      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-ctype" />
-      <path value="$PROJECT_DIR$/vendor/theseer/tokenizer" />
-      <path value="$PROJECT_DIR$/vendor/symfony/process" />
-      <path value="$PROJECT_DIR$/vendor/symfony/service-contracts" />
-      <path value="$PROJECT_DIR$/vendor/phpdocumentor/type-resolver" />
-      <path value="$PROJECT_DIR$/vendor/sebastian/recursion-context" />
       <path value="$PROJECT_DIR$/vendor/sebastian/resource-operations" />
-      <path value="$PROJECT_DIR$/vendor/sebastian/object-enumerator" />
-      <path value="$PROJECT_DIR$/vendor/sebastian/object-reflector" />
-      <path value="$PROJECT_DIR$/vendor/phpdocumentor/reflection-common" />
-      <path value="$PROJECT_DIR$/vendor/phpdocumentor/reflection-docblock" />
-      <path value="$PROJECT_DIR$/vendor/sebastian/version" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/recursion-context" />
       <path value="$PROJECT_DIR$/vendor/webmozart/assert" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/version" />
+      <path value="$PROJECT_DIR$/vendor/phpdocumentor/reflection-docblock" />
+      <path value="$PROJECT_DIR$/vendor/phpdocumentor/reflection-common" />
+      <path value="$PROJECT_DIR$/vendor/phpdocumentor/type-resolver" />
       <path value="$PROJECT_DIR$/vendor/composer" />
-      <path value="$PROJECT_DIR$/vendor/phpunit/php-code-coverage" />
-      <path value="$PROJECT_DIR$/vendor/phpunit/php-file-iterator" />
-      <path value="$PROJECT_DIR$/vendor/phar-io/version" />
-      <path value="$PROJECT_DIR$/vendor/phpspec/prophecy" />
-      <path value="$PROJECT_DIR$/vendor/phpunit/php-token-stream" />
-      <path value="$PROJECT_DIR$/vendor/phpunit/phpunit" />
-      <path value="$PROJECT_DIR$/vendor/phpunit/php-text-template" />
-      <path value="$PROJECT_DIR$/vendor/phpunit/php-timer" />
-      <path value="$PROJECT_DIR$/vendor/myclabs/deep-copy" />
-      <path value="$PROJECT_DIR$/vendor/phar-io/manifest" />
-      <path value="$PROJECT_DIR$/vendor/psr/container" />
-      <path value="$PROJECT_DIR$/vendor/mockery/mockery" />
       <path value="$PROJECT_DIR$/vendor/hamcrest/hamcrest-php" />
-      <path value="$PROJECT_DIR$/vendor/league/container" />
-      <path value="$PROJECT_DIR$/vendor/bytic/container" />
+      <path value="$PROJECT_DIR$/vendor/phpunit/php-code-coverage" />
+      <path value="$PROJECT_DIR$/vendor/phpspec/prophecy" />
+      <path value="$PROJECT_DIR$/vendor/phpunit/php-text-template" />
+      <path value="$PROJECT_DIR$/vendor/phpunit/php-file-iterator" />
+      <path value="$PROJECT_DIR$/vendor/phpunit/php-token-stream" />
+      <path value="$PROJECT_DIR$/vendor/phpunit/php-timer" />
+      <path value="$PROJECT_DIR$/vendor/symfony/console" />
+      <path value="$PROJECT_DIR$/vendor/phpunit/phpunit" />
+      <path value="$PROJECT_DIR$/vendor/myclabs/deep-copy" />
+      <path value="$PROJECT_DIR$/vendor/psr/container" />
+      <path value="$PROJECT_DIR$/vendor/phar-io/version" />
+      <path value="$PROJECT_DIR$/vendor/phar-io/manifest" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/comparator" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/code-unit-reverse-lookup" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/environment" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/diff" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/global-state" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/exporter" />
+      <path value="$PROJECT_DIR$/vendor/mockery/mockery" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/object-reflector" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/object-enumerator" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-mbstring" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-ctype" />
+      <path value="$PROJECT_DIR$/vendor/symfony/process" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-php73" />
+      <path value="$PROJECT_DIR$/vendor/theseer/tokenizer" />
+      <path value="$PROJECT_DIR$/vendor/symfony/service-contracts" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/instantiator" />
       <path value="$PROJECT_DIR$/vendor/container-interop/container-interop" />
+      <path value="$PROJECT_DIR$/vendor/bytic/container" />
+      <path value="$PROJECT_DIR$/vendor/league/container" />
     </include_path>
   </component>
   <component name="ProjectId" id="1Spa1Z8iN8A96umDByUZRGbBeue" />
-  <component name="ProjectViewState">
-    <option name="hideEmptyMiddlePackages" value="true" />
-    <option name="showExcludedFiles" value="true" />
-    <option name="showLibraryContents" value="true" />
-  </component>
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../container" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -85,69 +83,49 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="settings.editor.selected.configurable" value="preferences.sourceCode.PHP" />
+    <property name="settings.editor.selected.configurable" value="preferences.fileTypes" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="H:\webdev\www\libraries\bytic\console\tests\src" />
-      <recent name="H:\webdev\www\libraries\bytic\console\src" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="H:\webdev\www\libraries\bytic\console" />
-      <recent name="H:\webdev\www\libraries\bytic\console\tests\src" />
-      <recent name="H:\webdev\www\libraries\bytic\console\tests\fixtures" />
-      <recent name="H:\webdev\www\libraries\bytic\console\tests" />
       <recent name="D:\webdev\libraries\bytic\console" />
     </key>
   </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
   <component name="RunManager" selected="PHPUnit.tests">
-    <configuration name="HasBootstrappersTest" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="ByTIC\Console\Tests\Application\HasBootstrappersTest" configuration_file="$PROJECT_DIR$/phpunit.xml.dist" file="$PROJECT_DIR$/tests/src/Application/HasBootstrappersTest.php" scope="Class" />
+    <configuration name="CommandTest" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="ByTIC\Console\Tests\CommandTest" file="$PROJECT_DIR$/tests/src/CommandTest.php" scope="Class" />
       <method v="2" />
     </configuration>
-    <configuration name="ServiceProvidersLoaderTest" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="ByTIC\Console\Tests\CommandLoader\Loaders\ServiceProvidersLoaderTest" configuration_file="$PROJECT_DIR$/phpunit.xml.dist" file="$PROJECT_DIR$/tests/src/CommandLoader/Loaders/ServiceProvidersLoaderTest.php" scope="Class" />
-      <method v="2" />
-    </configuration>
-    <configuration name="ServiceProvidersLoaderTest.test_generate_commands" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="ByTIC\Console\Tests\CommandLoader\Loaders\ServiceProvidersLoaderTest" configuration_file="$PROJECT_DIR$/phpunit.xml.dist" file="$PROJECT_DIR$/tests/src/CommandLoader/Loaders/ServiceProvidersLoaderTest.php" method="test_generate_commands" scope="Method" />
+    <configuration name="CommandTest.test_load" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="ByTIC\Console\Tests\CommandTest" file="$PROJECT_DIR$/tests/src/CommandTest.php" method="test_load" scope="Method" />
       <method v="2" />
     </configuration>
     <configuration name="phpunit.xml.dist" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
-      <TestRunner directory="$PROJECT_DIR$/tests/src" scope="XML" />
+      <TestRunner scope="XML" />
       <method v="2" />
     </configuration>
     <configuration name="tests" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner configuration_file="$PROJECT_DIR$/phpunit.xml.dist" directory="$PROJECT_DIR$/tests" />
+      <TestRunner directory="$PROJECT_DIR$/tests" />
       <method v="2" />
     </configuration>
-    <list>
-      <item itemvalue="PHPUnit.phpunit.xml.dist" />
-      <item itemvalue="PHPUnit.HasBootstrappersTest" />
-      <item itemvalue="PHPUnit.tests" />
-      <item itemvalue="PHPUnit.ServiceProvidersLoaderTest" />
-      <item itemvalue="PHPUnit.ServiceProvidersLoaderTest.test_generate_commands" />
-    </list>
     <recent_temporary>
       <list>
         <item itemvalue="PHPUnit.tests" />
-        <item itemvalue="PHPUnit.ServiceProvidersLoaderTest" />
-        <item itemvalue="PHPUnit.ServiceProvidersLoaderTest.test_generate_commands" />
-        <item itemvalue="PHPUnit.HasBootstrappersTest" />
+        <item itemvalue="PHPUnit.CommandTest" />
+        <item itemvalue="PHPUnit.CommandTest.test_load" />
       </list>
     </recent_temporary>
-  </component>
-  <component name="ServiceViewManager">
-    <option name="viewStates">
-      <list>
-        <serviceView>
-          <treeState>
-            <expand />
-            <select />
-          </treeState>
-        </serviceView>
-      </list>
-    </option>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -160,13 +138,7 @@
       <option name="presentableId" value="Default" />
       <updated>1572262776782</updated>
       <workItem from="1572262778305" duration="3486000" />
-      <workItem from="1572356186765" duration="1194000" />
-      <workItem from="1572427874203" duration="588000" />
-      <workItem from="1574170074632" duration="214000" />
-      <workItem from="1574171853380" duration="556000" />
-      <workItem from="1574356348704" duration="5579000" />
-      <workItem from="1574534275002" duration="764000" />
-      <workItem from="1574605425800" duration="12580000" />
+      <workItem from="1574672634481" duration="1284000" />
     </task>
     <servers />
   </component>
@@ -185,75 +157,5 @@
         </entry>
       </map>
     </option>
-  </component>
-  <component name="WindowStateProjectService">
-    <state x="644" y="140" width="680" height="760" key="#HasBootstrappersTest" timestamp="1574362471558">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="644" y="140" width="680" height="760" key="#HasBootstrappersTest/0.0.1920.1040/-1440.0.1440.860@0.0.1920.1040" timestamp="1574362471558" />
-    <state x="552" y="177" key="#Inspections" timestamp="1574623313286">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="552" y="177" key="#Inspections/0.0.1920.1040/-1440.0.1440.860@0.0.1920.1040" timestamp="1574623313286" />
-    <state x="674" y="110" key="#PHP" timestamp="1574362462076">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="674" y="110" key="#PHP/0.0.1920.1040/-1440.0.1440.860@0.0.1920.1040" timestamp="1574362462076" />
-    <state x="414" y="174" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1574362497238">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="414" y="174" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040/-1440.0.1440.860@0.0.1920.1040" timestamp="1574362497238" />
-    <state x="724" y="322" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1574617846190">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="724" y="322" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040/-1440.0.1440.860@0.0.1920.1040" timestamp="1574617846190" />
-    <state x="765" y="235" key="#com.intellij.ide.util.MemberChooser" timestamp="1574619790320">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="765" y="235" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040/-1440.0.1440.860@0.0.1920.1040" timestamp="1574619790320" />
-    <state x="690" y="274" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1574618218699">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="690" y="274" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1040/-1440.0.1440.860@0.0.1920.1040" timestamp="1574618218699" />
-    <state x="740" y="274" key="FileChooserDialogImpl" timestamp="1574620053925">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="740" y="274" key="FileChooserDialogImpl/0.0.1920.1040/-1440.0.1440.860@0.0.1920.1040" timestamp="1574620053925" />
-    <state width="1877" height="273" key="GridCell.Tab.0.bottom" timestamp="1574623420510">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="273" key="GridCell.Tab.0.bottom/0.0.1920.1040/-1440.0.1440.860@0.0.1920.1040" timestamp="1574623420510" />
-    <state width="1877" height="273" key="GridCell.Tab.0.center" timestamp="1574623420510">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="273" key="GridCell.Tab.0.center/0.0.1920.1040/-1440.0.1440.860@0.0.1920.1040" timestamp="1574623420510" />
-    <state width="1877" height="273" key="GridCell.Tab.0.left" timestamp="1574623420510">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="273" key="GridCell.Tab.0.left/0.0.1920.1040/-1440.0.1440.860@0.0.1920.1040" timestamp="1574623420510" />
-    <state width="1877" height="273" key="GridCell.Tab.0.right" timestamp="1574623420510">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="273" key="GridCell.Tab.0.right/0.0.1920.1040/-1440.0.1440.860@0.0.1920.1040" timestamp="1574623420510" />
-    <state width="1877" height="338" key="GridCell.Tab.1.bottom" timestamp="1574623410685">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="338" key="GridCell.Tab.1.bottom/0.0.1920.1040/-1440.0.1440.860@0.0.1920.1040" timestamp="1574623410685" />
-    <state width="1877" height="338" key="GridCell.Tab.1.center" timestamp="1574623410685">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="338" key="GridCell.Tab.1.center/0.0.1920.1040/-1440.0.1440.860@0.0.1920.1040" timestamp="1574623410685" />
-    <state width="1877" height="338" key="GridCell.Tab.1.left" timestamp="1574623410685">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="338" key="GridCell.Tab.1.left/0.0.1920.1040/-1440.0.1440.860@0.0.1920.1040" timestamp="1574623410685" />
-    <state width="1877" height="338" key="GridCell.Tab.1.right" timestamp="1574623410685">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="338" key="GridCell.Tab.1.right/0.0.1920.1040/-1440.0.1440.860@0.0.1920.1040" timestamp="1574623410685" />
-    <state x="461" y="161" key="SettingsEditor" timestamp="1574170149169">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="461" y="161" key="SettingsEditor/0.0.1920.1040/-1440.0.1440.860@0.0.1920.1040" timestamp="1574170149169" />
   </component>
 </project>

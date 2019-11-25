@@ -1,11 +1,12 @@
 <?php
 
 use ByTIC\Console\Application;
+use ByTIC\Console\CommandLoader\CommandLoader;
 use Nip\Container\Container;
 
 if (defined('BYTIC_CONSOLE_ROOT_DIR')) {
-    $appFile = BYTIC_CONSOLE_ROOT_DIR . '/bootstrap/app.php';
-    if (file_exists($appFile)) {
+    $appFile = realpath(BYTIC_CONSOLE_ROOT_DIR . '/bootstrap/app.php');
+    if ($appFile != __FILE__ && file_exists($appFile)) {
         /** @noinspection PhpIncludeInspection */
         $app = require_once $appFile;
         $app->registerConfiguredProviders();
@@ -15,8 +16,19 @@ if (defined('BYTIC_CONSOLE_ROOT_DIR')) {
     }
 }
 /** @var Container $container */
-$container = $container ? $container : Container::getInstance();
+if (!isset($container)) {
+    $container = Container::getInstance();
+}
+if (!($container instanceof Container)) {
+    $container = new Container();
+    Container::setInstance($container);
+}
+
 
 /** @var ByTIC\Console\Application $app */
 $app = $container->get(Application::class);
-$app->setCommandLoader();
+$commandLoader = $container->get(CommandLoader::class);
+
+$app->setCommandLoader($commandLoader);
+
+return $app;

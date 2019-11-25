@@ -4,7 +4,7 @@
 require dirname(__DIR__) . '/bootstrap/autoload.php';
 
 
-$app = new Application('BYTIC Console', 'v1.0.0');
+$app = require dirname(__DIR__) . '/bootstrap/app.php';
 
 try {
     $app->run();
