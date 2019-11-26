@@ -2,6 +2,10 @@
 
 namespace ByTIC\Console\Tests;
 
+/**
+ * Class CommandTest
+ * @package ByTIC\Console\Tests
+ */
 class CommandTest extends AbstractTest
 {
     public function test_load()
