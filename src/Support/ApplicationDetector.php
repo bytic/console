@@ -48,7 +48,10 @@ class ApplicationDetector
     protected function initBootstrapApp($app)
     {
         $app->bootstrap();
+        $app->setupRequest();
         $app->setup();
+        $app->preHandleRequest();
+        $app->preRouting();
 //        $app->registerConfiguredProviders();
         /** @var Container $container */
         $container = $app->getContainer();
