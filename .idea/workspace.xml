@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="e3ea4456-5474-4d7b-9f6e-8f2c1f9bd1fb" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Support/ApplicationDetector.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Support/ApplicationDetector.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -140,7 +139,8 @@
       <workItem from="1574672634481" duration="1584000" />
       <workItem from="1574750851263" duration="1720000" />
       <workItem from="1574881617860" duration="177000" />
-      <workItem from="1574883195307" duration="265000" />
+      <workItem from="1574883195307" duration="819000" />
+      <workItem from="1578848682115" duration="239000" />
     </task>
     <servers />
   </component>
@@ -159,6 +159,12 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="656" y="252" width="607" height="536" key="find.popup" timestamp="1578848909567">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="656" y="252" width="607" height="536" key="find.popup/0.0.1920.1040/-1440.0.1440.860@0.0.1920.1040" timestamp="1578848909567" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

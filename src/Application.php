@@ -23,4 +23,15 @@ class Application extends SymfonyApplication
         parent::__construct($name, $version);
         $this->bootstrap();
     }
+
+    /**
+     * Format the given command as a fully-qualified executable command.
+     *
+     * @param  string  $string
+     * @return string
+     */
+    public static function formatCommandString($string)
+    {
+        return sprintf('%s %s %s', static::phpBinary(), static::byticBinary(), $string);
+    }
 }
