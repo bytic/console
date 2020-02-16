@@ -3,6 +3,7 @@
 namespace ByTIC\Console\Support;
 
 use Exception;
+use Nip\Application\Application;
 use Nip\Container\Container;
 
 /**
@@ -43,19 +44,15 @@ class ApplicationDetector
     }
 
     /**
-     * @param $app
+     * @param Application $app
      */
     protected function initBootstrapApp($app)
     {
         $app->bootstrap();
-        $app->setupRequest();
-        $app->setup();
-        $app->preHandleRequest();
-        $app->preRouting();
-//        $app->registerConfiguredProviders();
+
         /** @var Container $container */
         $container = $app->getContainer();
-        \ByTIC\Console\CommandLoader\Loaders\ServiceProvidersLoader::setProvidersFromContainer($container);
+        \ByTIC\Console\CommandLoader\Loaders\ServiceProvidersLoader::setProvidersFromApplication($app);
     }
 
     /**
