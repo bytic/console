@@ -20,7 +20,7 @@
     "symfony/process": "^3.0|^4.0"
   },
   "require-dev": {
-    "bytic/application": "^1.0",
+    "bytic/application": "^0.9",
     "vlucas/phpdotenv": "^2.0",
     "phpunit/phpunit": "^7.2",
     "mockery/mockery": "^1.1"

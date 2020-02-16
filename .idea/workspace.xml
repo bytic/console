@@ -2,12 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e3ea4456-5474-4d7b-9f6e-8f2c1f9bd1fb" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/tests/fixtures/demoapp/bootstrap/app.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/fixtures/demoapp/config/app.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/fixtures/demoapp/routes/routes.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/src/Support/ApplicationDetectorTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/console.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/console.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/CommandLoader/Loaders/ServiceProvidersLoader.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/CommandLoader/Loaders/ServiceProvidersLoader.php" afterDir="false" />
@@ -157,7 +151,7 @@
       <recent name="D:\webdev\libraries\bytic\console" />
     </key>
   </component>
-  <component name="RunManager" selected="PHPUnit.ApplicationDetectorTest">
+  <component name="RunManager" selected="PHPUnit.tests">
     <configuration name="ApplicationDetectorTest" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
       <TestRunner class="ByTIC\Console\Tests\Support\ApplicationDetectorTest" configuration_file="$PROJECT_DIR$/phpunit.xml.dist" file="$PROJECT_DIR$/tests/src/Support/ApplicationDetectorTest.php" scope="Class" />
       <method v="2" />
@@ -180,8 +174,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="PHPUnit.ApplicationDetectorTest" />
         <item itemvalue="PHPUnit.tests" />
+        <item itemvalue="PHPUnit.ApplicationDetectorTest" />
         <item itemvalue="PHPUnit.CommandTest.test_load" />
         <item itemvalue="PHPUnit.CommandTest" />
       </list>
@@ -215,7 +209,7 @@
       <workItem from="1574881617860" duration="177000" />
       <workItem from="1574883195307" duration="819000" />
       <workItem from="1578848682115" duration="239000" />
-      <workItem from="1581875282211" duration="3698000" />
+      <workItem from="1581875282211" duration="3986000" />
     </task>
     <servers />
   </component>
@@ -240,22 +234,22 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="740" y="274" key="FileChooserDialogImpl/0.0.1920.1040/-1440.0.1440.860@0.0.1920.1040" timestamp="1581879243450" />
-    <state width="1877" height="273" key="GridCell.Tab.0.bottom" timestamp="1581880846234">
+    <state width="1877" height="273" key="GridCell.Tab.0.bottom" timestamp="1581881245330">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="273" key="GridCell.Tab.0.bottom/0.0.1920.1040/-1440.0.1440.860@0.0.1920.1040" timestamp="1581880846234" />
-    <state width="1877" height="273" key="GridCell.Tab.0.center" timestamp="1581880846233">
+    <state width="1877" height="273" key="GridCell.Tab.0.bottom/0.0.1920.1040/-1440.0.1440.860@0.0.1920.1040" timestamp="1581881245330" />
+    <state width="1877" height="273" key="GridCell.Tab.0.center" timestamp="1581881245330">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="273" key="GridCell.Tab.0.center/0.0.1920.1040/-1440.0.1440.860@0.0.1920.1040" timestamp="1581880846233" />
-    <state width="1877" height="273" key="GridCell.Tab.0.left" timestamp="1581880846233">
+    <state width="1877" height="273" key="GridCell.Tab.0.center/0.0.1920.1040/-1440.0.1440.860@0.0.1920.1040" timestamp="1581881245330" />
+    <state width="1877" height="273" key="GridCell.Tab.0.left" timestamp="1581881245330">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="273" key="GridCell.Tab.0.left/0.0.1920.1040/-1440.0.1440.860@0.0.1920.1040" timestamp="1581880846233" />
-    <state width="1877" height="273" key="GridCell.Tab.0.right" timestamp="1581880846233">
+    <state width="1877" height="273" key="GridCell.Tab.0.left/0.0.1920.1040/-1440.0.1440.860@0.0.1920.1040" timestamp="1581881245330" />
+    <state width="1877" height="273" key="GridCell.Tab.0.right" timestamp="1581881245330">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="273" key="GridCell.Tab.0.right/0.0.1920.1040/-1440.0.1440.860@0.0.1920.1040" timestamp="1581880846233" />
+    <state width="1877" height="273" key="GridCell.Tab.0.right/0.0.1920.1040/-1440.0.1440.860@0.0.1920.1040" timestamp="1581881245330" />
     <state width="1877" height="338" key="GridCell.Tab.1.bottom" timestamp="1581876274926">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
