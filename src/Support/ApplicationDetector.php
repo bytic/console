@@ -53,10 +53,6 @@ class ApplicationDetector
         $app->preHandleRequest();
         $app->preRouting();
 //        $app->registerConfiguredProviders();
-
-        /** @var Container $container */
-        $container = $app->getContainer();
-        \ByTIC\Console\CommandLoader\Loaders\ServiceProvidersLoader::setProvidersFromContainer($container);
     }
 
     /**

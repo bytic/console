@@ -2,10 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e3ea4456-5474-4d7b-9f6e-8f2c1f9bd1fb" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/CommandLoader/Loaders/FolderLoader.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/fixtures/demoapp/application/Console/Model/TestCommand.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/src/CommandLoader/Loaders/FolderLoaderTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/console.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/console.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bootstrap/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/bootstrap/app.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CommandLoader/CommandLoader.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/CommandLoader/CommandLoader.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CommandLoader/Loaders/AbstractLoader.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/CommandLoader/Loaders/AbstractLoader.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/CommandLoader/Loaders/ServiceProvidersLoader.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/CommandLoader/Loaders/ServiceProvidersLoader.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CommandLoader/Traits/HasLoaders.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/CommandLoader/Traits/HasLoaders.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Support/ApplicationDetector.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Support/ApplicationDetector.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/src/CommandLoader/Loaders/ServiceProvidersLoaderTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/src/CommandLoader/Loaders/ServiceProvidersLoaderTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/src/Support/ApplicationDetectorTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/src/Support/ApplicationDetectorTest.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -72,7 +82,6 @@
       <path value="$PROJECT_DIR$/vendor/psr/log" />
       <path value="$PROJECT_DIR$/vendor/symfony/polyfill-php72" />
       <path value="$PROJECT_DIR$/vendor/psr/http-server-handler" />
-      <path value="$PROJECT_DIR$/vendor/symfony/mime" />
       <path value="$PROJECT_DIR$/vendor/symfony/http-kernel" />
       <path value="$PROJECT_DIR$/vendor/psr/http-server-middleware" />
       <path value="$PROJECT_DIR$/vendor/symfony/http-foundation" />
@@ -86,7 +95,6 @@
       <path value="$PROJECT_DIR$/vendor/symfony/event-dispatcher-contracts" />
       <path value="$PROJECT_DIR$/vendor/symfony/config" />
       <path value="$PROJECT_DIR$/vendor/symfony/routing" />
-      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-intl-idn" />
       <path value="$PROJECT_DIR$/vendor/symfony/event-dispatcher" />
       <path value="$PROJECT_DIR$/vendor/bytic/cache" />
       <path value="$PROJECT_DIR$/vendor/bytic/profiler" />
@@ -113,9 +121,7 @@
       <path value="$PROJECT_DIR$/vendor/bytic/google-analytics" />
       <path value="$PROJECT_DIR$/vendor/bytic/mail" />
       <path value="$PROJECT_DIR$/vendor/bytic/helpers" />
-      <path value="$PROJECT_DIR$/vendor/bytic/flash" />
       <path value="$PROJECT_DIR$/vendor/bytic/locale" />
-      <path value="$PROJECT_DIR$/vendor/bytic/pipeline" />
       <path value="$PROJECT_DIR$/vendor/bytic/dispatcher" />
       <path value="$PROJECT_DIR$/vendor/maximebf/debugbar" />
       <path value="$PROJECT_DIR$/vendor/bytic/debugbar" />
@@ -124,6 +130,11 @@
       <path value="$PROJECT_DIR$/vendor/monolog/monolog" />
       <path value="$PROJECT_DIR$/vendor/bytic/autoloader" />
       <path value="$PROJECT_DIR$/vendor/vlucas/phpdotenv" />
+      <path value="$PROJECT_DIR$/vendor/paragonie/random_compat" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-php56" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-php70" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-util" />
+      <path value="$PROJECT_DIR$/vendor/bytic/controllers" />
     </include_path>
   </component>
   <component name="ProjectId" id="1Spa1Z8iN8A96umDByUZRGbBeue" />
@@ -135,7 +146,7 @@
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../container" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/tests/src/CommandLoader/Loaders" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -144,10 +155,12 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="settings.editor.selected.configurable" value="preferences.fileTypes" />
+    <property name="settings.editor.selected.configurable" value="web-ide.project.structure" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="H:\webdev\www\libraries\bytic\console\tests\src\CommandLoader\Loaders" />
+      <recent name="H:\webdev\www\libraries\bytic\console\src\CommandLoader\Loaders" />
       <recent name="D:\webdev\libraries\bytic\console" />
     </key>
   </component>
@@ -156,12 +169,16 @@
       <TestRunner class="ByTIC\Console\Tests\Support\ApplicationDetectorTest" configuration_file="$PROJECT_DIR$/phpunit.xml.dist" file="$PROJECT_DIR$/tests/src/Support/ApplicationDetectorTest.php" scope="Class" />
       <method v="2" />
     </configuration>
-    <configuration name="CommandTest" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="ByTIC\Console\Tests\CommandTest" file="$PROJECT_DIR$/tests/src/CommandTest.php" scope="Class" />
+    <configuration name="ApplicationDetectorTest.test_getContainer" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="ByTIC\Console\Tests\Support\ApplicationDetectorTest" configuration_file="$PROJECT_DIR$/phpunit.xml.dist" file="$PROJECT_DIR$/tests/src/Support/ApplicationDetectorTest.php" method="test_getContainer" scope="Method" />
       <method v="2" />
     </configuration>
     <configuration name="CommandTest.test_load" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
       <TestRunner class="ByTIC\Console\Tests\CommandTest" file="$PROJECT_DIR$/tests/src/CommandTest.php" method="test_load" scope="Method" />
+      <method v="2" />
+    </configuration>
+    <configuration name="FolderLoaderTest.test_generate_commands" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="ByTIC\Console\Tests\CommandLoader\Loaders\FolderLoaderTest" configuration_file="$PROJECT_DIR$/phpunit.xml.dist" file="$PROJECT_DIR$/tests/src/CommandLoader/Loaders/FolderLoaderTest.php" method="test_generate_commands" scope="Method" />
       <method v="2" />
     </configuration>
     <configuration name="phpunit.xml.dist" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
@@ -175,9 +192,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="PHPUnit.tests" />
+        <item itemvalue="PHPUnit.ApplicationDetectorTest.test_getContainer" />
+        <item itemvalue="PHPUnit.FolderLoaderTest.test_generate_commands" />
         <item itemvalue="PHPUnit.ApplicationDetectorTest" />
         <item itemvalue="PHPUnit.CommandTest.test_load" />
-        <item itemvalue="PHPUnit.CommandTest" />
       </list>
     </recent_temporary>
   </component>
@@ -209,7 +227,9 @@
       <workItem from="1574881617860" duration="177000" />
       <workItem from="1574883195307" duration="819000" />
       <workItem from="1578848682115" duration="239000" />
-      <workItem from="1581875282211" duration="3986000" />
+      <workItem from="1581875282211" duration="4260000" />
+      <workItem from="1581920123894" duration="1229000" />
+      <workItem from="1584121156002" duration="4355000" />
     </task>
     <servers />
   </component>
@@ -230,46 +250,54 @@
     </option>
   </component>
   <component name="WindowStateProjectService">
-    <state x="740" y="274" key="FileChooserDialogImpl" timestamp="1581879243450">
+    <state x="753" y="235" key="#com.intellij.ide.util.MemberChooser" timestamp="1584123237949">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="740" y="274" key="FileChooserDialogImpl/0.0.1920.1040/-1440.0.1440.860@0.0.1920.1040" timestamp="1581879243450" />
-    <state width="1877" height="273" key="GridCell.Tab.0.bottom" timestamp="1581881245330">
+    <state x="753" y="235" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040/-1440.0.1440.860@0.0.1920.1040" timestamp="1584123237949" />
+    <state x="740" y="274" key="FileChooserDialogImpl" timestamp="1584123498440">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="273" key="GridCell.Tab.0.bottom/0.0.1920.1040/-1440.0.1440.860@0.0.1920.1040" timestamp="1581881245330" />
-    <state width="1877" height="273" key="GridCell.Tab.0.center" timestamp="1581881245330">
+    <state x="740" y="274" key="FileChooserDialogImpl/0.0.1920.1040/-1440.0.1440.860@0.0.1920.1040" timestamp="1584123498440" />
+    <state width="1877" height="491" key="GridCell.Tab.0.bottom" timestamp="1584126225269">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="273" key="GridCell.Tab.0.center/0.0.1920.1040/-1440.0.1440.860@0.0.1920.1040" timestamp="1581881245330" />
-    <state width="1877" height="273" key="GridCell.Tab.0.left" timestamp="1581881245330">
+    <state width="1877" height="491" key="GridCell.Tab.0.bottom/0.0.1920.1040/-1440.0.1440.860@0.0.1920.1040" timestamp="1584126225269" />
+    <state width="1877" height="491" key="GridCell.Tab.0.center" timestamp="1584126225268">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="273" key="GridCell.Tab.0.left/0.0.1920.1040/-1440.0.1440.860@0.0.1920.1040" timestamp="1581881245330" />
-    <state width="1877" height="273" key="GridCell.Tab.0.right" timestamp="1581881245330">
+    <state width="1877" height="491" key="GridCell.Tab.0.center/0.0.1920.1040/-1440.0.1440.860@0.0.1920.1040" timestamp="1584126225268" />
+    <state width="1877" height="491" key="GridCell.Tab.0.left" timestamp="1584126225268">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="273" key="GridCell.Tab.0.right/0.0.1920.1040/-1440.0.1440.860@0.0.1920.1040" timestamp="1581881245330" />
-    <state width="1877" height="338" key="GridCell.Tab.1.bottom" timestamp="1581876274926">
+    <state width="1877" height="491" key="GridCell.Tab.0.left/0.0.1920.1040/-1440.0.1440.860@0.0.1920.1040" timestamp="1584126225268" />
+    <state width="1877" height="491" key="GridCell.Tab.0.right" timestamp="1584126225269">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="338" key="GridCell.Tab.1.bottom/0.0.1920.1040/-1440.0.1440.860@0.0.1920.1040" timestamp="1581876274926" />
-    <state width="1877" height="338" key="GridCell.Tab.1.center" timestamp="1581876274925">
+    <state width="1877" height="491" key="GridCell.Tab.0.right/0.0.1920.1040/-1440.0.1440.860@0.0.1920.1040" timestamp="1584126225269" />
+    <state width="1877" height="338" key="GridCell.Tab.1.bottom" timestamp="1584125721420">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="338" key="GridCell.Tab.1.center/0.0.1920.1040/-1440.0.1440.860@0.0.1920.1040" timestamp="1581876274925" />
-    <state width="1877" height="338" key="GridCell.Tab.1.left" timestamp="1581876274925">
+    <state width="1877" height="338" key="GridCell.Tab.1.bottom/0.0.1920.1040/-1440.0.1440.860@0.0.1920.1040" timestamp="1584125721420" />
+    <state width="1877" height="338" key="GridCell.Tab.1.center" timestamp="1584125721420">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="338" key="GridCell.Tab.1.left/0.0.1920.1040/-1440.0.1440.860@0.0.1920.1040" timestamp="1581876274925" />
-    <state width="1877" height="338" key="GridCell.Tab.1.right" timestamp="1581876274926">
+    <state width="1877" height="338" key="GridCell.Tab.1.center/0.0.1920.1040/-1440.0.1440.860@0.0.1920.1040" timestamp="1584125721420" />
+    <state width="1877" height="338" key="GridCell.Tab.1.left" timestamp="1584125721420">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="338" key="GridCell.Tab.1.right/0.0.1920.1040/-1440.0.1440.860@0.0.1920.1040" timestamp="1581876274926" />
-    <state x="656" y="252" width="607" height="536" key="find.popup" timestamp="1581876582410">
+    <state width="1877" height="338" key="GridCell.Tab.1.left/0.0.1920.1040/-1440.0.1440.860@0.0.1920.1040" timestamp="1584125721420" />
+    <state width="1877" height="338" key="GridCell.Tab.1.right" timestamp="1584125721420">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="656" y="252" width="607" height="536" key="find.popup/0.0.1920.1040/-1440.0.1440.860@0.0.1920.1040" timestamp="1581876582410" />
+    <state width="1877" height="338" key="GridCell.Tab.1.right/0.0.1920.1040/-1440.0.1440.860@0.0.1920.1040" timestamp="1584125721420" />
+    <state x="461" y="162" key="SettingsEditor" timestamp="1584124872527">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="461" y="162" key="SettingsEditor/0.0.1920.1040/-1440.0.1440.860@0.0.1920.1040" timestamp="1584124872527" />
+    <state x="656" y="252" width="607" height="536" key="find.popup" timestamp="1584122724843">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="656" y="252" width="607" height="536" key="find.popup/0.0.1920.1040/-1440.0.1440.860@0.0.1920.1040" timestamp="1584122724843" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -278,6 +306,16 @@
           <url>file://$PROJECT_DIR$/tests/src/CommandTest.php</url>
           <line>14</line>
           <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/src/CommandLoader/Loaders/FolderLoader.php</url>
+          <line>54</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/vendor/bytic/utility/src/Str.php</url>
+          <line>41</line>
+          <option name="timeStamp" value="3" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

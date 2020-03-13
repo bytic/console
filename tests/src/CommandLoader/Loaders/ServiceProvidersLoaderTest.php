@@ -16,7 +16,7 @@ class ServiceProvidersLoaderTest extends AbstractTest
     public function test_generate_commands()
     {
         $loader = new ServiceProvidersLoader();
-        $loader::setProviders([new GenericServiceProvider()]);
+        $loader->setProviders([new GenericServiceProvider()]);
 
         $commands = $loader->getCommands();
         self::assertCount(1, $commands);

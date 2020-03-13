@@ -33,7 +33,8 @@
   "autoload-dev": {
     "psr-4": {
       "ByTIC\\Console\\Tests\\": "tests/src",
-      "ByTIC\\Console\\Tests\\Fixtures\\": "tests/fixtures"
+      "ByTIC\\Console\\Tests\\Fixtures\\": "tests/fixtures",
+      "App\\": "tests/fixtures/demoapp/application"
     }
   },
   "scripts": {

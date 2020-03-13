@@ -2,12 +2,16 @@
 
 namespace ByTIC\Console\CommandLoader\Loaders;
 
+use Nip\Container\ContainerAwareTrait;
+
 /**
  * Class AbstractLoader
  * @package ByTIC\Console\CommandLoader\Loaders
  */
 abstract class AbstractLoader
 {
+    use ContainerAwareTrait;
+
     protected $commands = null;
 
     /**

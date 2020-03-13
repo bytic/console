@@ -4,6 +4,7 @@ namespace ByTIC\Console\CommandLoader;
 
 use ByTIC\Console\CommandLoader\Traits\HasCommands;
 use ByTIC\Console\CommandLoader\Traits\HasLoaders;
+use Nip\Container\ContainerAwareTrait;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\CommandLoader\CommandLoaderInterface;
 use Symfony\Component\Console\Exception\CommandNotFoundException;
@@ -16,6 +17,7 @@ class CommandLoader implements CommandLoaderInterface
 {
     use HasLoaders;
     use HasCommands;
+    use ContainerAwareTrait;
 
     /**
      * CommandLoader constructor.
