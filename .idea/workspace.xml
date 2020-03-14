@@ -2,20 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e3ea4456-5474-4d7b-9f6e-8f2c1f9bd1fb" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/CommandLoader/Loaders/FolderLoader.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/fixtures/demoapp/application/Console/Model/TestCommand.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/src/CommandLoader/Loaders/FolderLoaderTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/console.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/console.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bootstrap/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/bootstrap/app.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/CommandLoader/CommandLoader.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/CommandLoader/CommandLoader.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/CommandLoader/Loaders/AbstractLoader.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/CommandLoader/Loaders/AbstractLoader.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/CommandLoader/Loaders/ServiceProvidersLoader.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/CommandLoader/Loaders/ServiceProvidersLoader.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/CommandLoader/Traits/HasLoaders.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/CommandLoader/Traits/HasLoaders.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Support/ApplicationDetector.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Support/ApplicationDetector.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/src/CommandLoader/Loaders/ServiceProvidersLoaderTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/src/CommandLoader/Loaders/ServiceProvidersLoaderTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/src/Support/ApplicationDetectorTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/src/Support/ApplicationDetectorTest.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -146,7 +133,7 @@
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/tests/src/CommandLoader/Loaders" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -229,7 +216,7 @@
       <workItem from="1578848682115" duration="239000" />
       <workItem from="1581875282211" duration="4260000" />
       <workItem from="1581920123894" duration="1229000" />
-      <workItem from="1584121156002" duration="4355000" />
+      <workItem from="1584121156002" duration="5392000" />
     </task>
     <servers />
   </component>
@@ -258,38 +245,38 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="740" y="274" key="FileChooserDialogImpl/0.0.1920.1040/-1440.0.1440.860@0.0.1920.1040" timestamp="1584123498440" />
-    <state width="1877" height="491" key="GridCell.Tab.0.bottom" timestamp="1584126225269">
+    <state width="1877" height="491" key="GridCell.Tab.0.bottom" timestamp="1584189491556">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="491" key="GridCell.Tab.0.bottom/0.0.1920.1040/-1440.0.1440.860@0.0.1920.1040" timestamp="1584126225269" />
-    <state width="1877" height="491" key="GridCell.Tab.0.center" timestamp="1584126225268">
+    <state width="1877" height="491" key="GridCell.Tab.0.bottom/0.0.1920.1040/-1440.0.1440.860@0.0.1920.1040" timestamp="1584189491556" />
+    <state width="1877" height="491" key="GridCell.Tab.0.center" timestamp="1584189491556">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="491" key="GridCell.Tab.0.center/0.0.1920.1040/-1440.0.1440.860@0.0.1920.1040" timestamp="1584126225268" />
-    <state width="1877" height="491" key="GridCell.Tab.0.left" timestamp="1584126225268">
+    <state width="1877" height="491" key="GridCell.Tab.0.center/0.0.1920.1040/-1440.0.1440.860@0.0.1920.1040" timestamp="1584189491556" />
+    <state width="1877" height="491" key="GridCell.Tab.0.left" timestamp="1584189491556">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="491" key="GridCell.Tab.0.left/0.0.1920.1040/-1440.0.1440.860@0.0.1920.1040" timestamp="1584126225268" />
-    <state width="1877" height="491" key="GridCell.Tab.0.right" timestamp="1584126225269">
+    <state width="1877" height="491" key="GridCell.Tab.0.left/0.0.1920.1040/-1440.0.1440.860@0.0.1920.1040" timestamp="1584189491556" />
+    <state width="1877" height="491" key="GridCell.Tab.0.right" timestamp="1584189491556">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="491" key="GridCell.Tab.0.right/0.0.1920.1040/-1440.0.1440.860@0.0.1920.1040" timestamp="1584126225269" />
-    <state width="1877" height="338" key="GridCell.Tab.1.bottom" timestamp="1584125721420">
+    <state width="1877" height="491" key="GridCell.Tab.0.right/0.0.1920.1040/-1440.0.1440.860@0.0.1920.1040" timestamp="1584189491556" />
+    <state width="1877" height="338" key="GridCell.Tab.1.bottom" timestamp="1584127249422">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="338" key="GridCell.Tab.1.bottom/0.0.1920.1040/-1440.0.1440.860@0.0.1920.1040" timestamp="1584125721420" />
-    <state width="1877" height="338" key="GridCell.Tab.1.center" timestamp="1584125721420">
+    <state width="1877" height="338" key="GridCell.Tab.1.bottom/0.0.1920.1040/-1440.0.1440.860@0.0.1920.1040" timestamp="1584127249422" />
+    <state width="1877" height="338" key="GridCell.Tab.1.center" timestamp="1584127249421">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="338" key="GridCell.Tab.1.center/0.0.1920.1040/-1440.0.1440.860@0.0.1920.1040" timestamp="1584125721420" />
-    <state width="1877" height="338" key="GridCell.Tab.1.left" timestamp="1584125721420">
+    <state width="1877" height="338" key="GridCell.Tab.1.center/0.0.1920.1040/-1440.0.1440.860@0.0.1920.1040" timestamp="1584127249421" />
+    <state width="1877" height="338" key="GridCell.Tab.1.left" timestamp="1584127249421">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="338" key="GridCell.Tab.1.left/0.0.1920.1040/-1440.0.1440.860@0.0.1920.1040" timestamp="1584125721420" />
-    <state width="1877" height="338" key="GridCell.Tab.1.right" timestamp="1584125721420">
+    <state width="1877" height="338" key="GridCell.Tab.1.left/0.0.1920.1040/-1440.0.1440.860@0.0.1920.1040" timestamp="1584127249421" />
+    <state width="1877" height="338" key="GridCell.Tab.1.right" timestamp="1584127249422">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="338" key="GridCell.Tab.1.right/0.0.1920.1040/-1440.0.1440.860@0.0.1920.1040" timestamp="1584125721420" />
+    <state width="1877" height="338" key="GridCell.Tab.1.right/0.0.1920.1040/-1440.0.1440.860@0.0.1920.1040" timestamp="1584127249422" />
     <state x="461" y="162" key="SettingsEditor" timestamp="1584124872527">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
