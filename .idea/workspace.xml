@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e3ea4456-5474-4d7b-9f6e-8f2c1f9bd1fb" name="Default Changelist" comment="" />
+    <list default="true" id="e3ea4456-5474-4d7b-9f6e-8f2c1f9bd1fb" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/bootstrap/constants.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/src/Application/DetectBinaryTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bootstrap/autoload.php" beforeDir="false" afterPath="$PROJECT_DIR$/bootstrap/autoload.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Application/DetectBinary.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application/DetectBinary.php" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -150,16 +156,16 @@
     </key>
   </component>
   <component name="RunManager" selected="PHPUnit.tests">
-    <configuration name="ApplicationDetectorTest" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="ByTIC\Console\Tests\Support\ApplicationDetectorTest" configuration_file="$PROJECT_DIR$/phpunit.xml.dist" file="$PROJECT_DIR$/tests/src/Support/ApplicationDetectorTest.php" scope="Class" />
-      <method v="2" />
-    </configuration>
     <configuration name="ApplicationDetectorTest.test_getContainer" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
       <TestRunner class="ByTIC\Console\Tests\Support\ApplicationDetectorTest" configuration_file="$PROJECT_DIR$/phpunit.xml.dist" file="$PROJECT_DIR$/tests/src/Support/ApplicationDetectorTest.php" method="test_getContainer" scope="Method" />
       <method v="2" />
     </configuration>
-    <configuration name="CommandTest.test_load" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="ByTIC\Console\Tests\CommandTest" file="$PROJECT_DIR$/tests/src/CommandTest.php" method="test_load" scope="Method" />
+    <configuration name="DetectBinaryTest" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="ByTIC\Console\Tests\Application\DetectBinaryTest" configuration_file="$PROJECT_DIR$/phpunit.xml.dist" file="$PROJECT_DIR$/tests/src/Application/DetectBinaryTest.php" scope="Class" />
+      <method v="2" />
+    </configuration>
+    <configuration name="DetectBinaryTest.test_byticBinary_finder" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="ByTIC\Console\Tests\Application\DetectBinaryTest" configuration_file="$PROJECT_DIR$/phpunit.xml.dist" file="$PROJECT_DIR$/tests/src/Application/DetectBinaryTest.php" method="test_byticBinary_finder" scope="Method" />
       <method v="2" />
     </configuration>
     <configuration name="FolderLoaderTest.test_generate_commands" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
@@ -177,10 +183,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="PHPUnit.tests" />
+        <item itemvalue="PHPUnit.DetectBinaryTest" />
+        <item itemvalue="PHPUnit.DetectBinaryTest.test_byticBinary_finder" />
         <item itemvalue="PHPUnit.ApplicationDetectorTest.test_getContainer" />
         <item itemvalue="PHPUnit.FolderLoaderTest.test_generate_commands" />
-        <item itemvalue="PHPUnit.ApplicationDetectorTest" />
-        <item itemvalue="PHPUnit.CommandTest.test_load" />
       </list>
     </recent_temporary>
   </component>
@@ -215,7 +221,7 @@
       <workItem from="1581875282211" duration="4260000" />
       <workItem from="1581920123894" duration="1229000" />
       <workItem from="1584121156002" duration="5392000" />
-      <workItem from="1584189452368" duration="682000" />
+      <workItem from="1584189452368" duration="2790000" />
     </task>
     <servers />
   </component>
@@ -240,50 +246,58 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="753" y="235" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040/-1440.0.1440.860@0.0.1920.1040" timestamp="1584123237949" />
-    <state x="740" y="274" key="FileChooserDialogImpl" timestamp="1584123498440">
+    <state x="690" y="274" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1584195440664">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="740" y="274" key="FileChooserDialogImpl/0.0.1920.1040/-1440.0.1440.860@0.0.1920.1040" timestamp="1584123498440" />
-    <state width="1877" height="491" key="GridCell.Tab.0.bottom" timestamp="1584189491556">
+    <state x="690" y="274" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1040/-1440.0.1440.860@0.0.1920.1040" timestamp="1584195440664" />
+    <state x="740" y="274" key="FileChooserDialogImpl" timestamp="1584194677433">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="491" key="GridCell.Tab.0.bottom/0.0.1920.1040/-1440.0.1440.860@0.0.1920.1040" timestamp="1584189491556" />
-    <state width="1877" height="491" key="GridCell.Tab.0.center" timestamp="1584189491556">
+    <state x="740" y="274" key="FileChooserDialogImpl/0.0.1920.1040/-1440.0.1440.860@0.0.1920.1040" timestamp="1584194677433" />
+    <state width="1877" height="491" key="GridCell.Tab.0.bottom" timestamp="1584195561060">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="491" key="GridCell.Tab.0.center/0.0.1920.1040/-1440.0.1440.860@0.0.1920.1040" timestamp="1584189491556" />
-    <state width="1877" height="491" key="GridCell.Tab.0.left" timestamp="1584189491556">
+    <state width="1877" height="491" key="GridCell.Tab.0.bottom/0.0.1920.1040/-1440.0.1440.860@0.0.1920.1040" timestamp="1584195561060" />
+    <state width="1877" height="491" key="GridCell.Tab.0.center" timestamp="1584195561060">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="491" key="GridCell.Tab.0.left/0.0.1920.1040/-1440.0.1440.860@0.0.1920.1040" timestamp="1584189491556" />
-    <state width="1877" height="491" key="GridCell.Tab.0.right" timestamp="1584189491556">
+    <state width="1877" height="491" key="GridCell.Tab.0.center/0.0.1920.1040/-1440.0.1440.860@0.0.1920.1040" timestamp="1584195561060" />
+    <state width="1877" height="491" key="GridCell.Tab.0.left" timestamp="1584195561059">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="491" key="GridCell.Tab.0.right/0.0.1920.1040/-1440.0.1440.860@0.0.1920.1040" timestamp="1584189491556" />
-    <state width="1877" height="338" key="GridCell.Tab.1.bottom" timestamp="1584127249422">
+    <state width="1877" height="491" key="GridCell.Tab.0.left/0.0.1920.1040/-1440.0.1440.860@0.0.1920.1040" timestamp="1584195561059" />
+    <state width="1877" height="491" key="GridCell.Tab.0.right" timestamp="1584195561060">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="338" key="GridCell.Tab.1.bottom/0.0.1920.1040/-1440.0.1440.860@0.0.1920.1040" timestamp="1584127249422" />
-    <state width="1877" height="338" key="GridCell.Tab.1.center" timestamp="1584127249421">
+    <state width="1877" height="491" key="GridCell.Tab.0.right/0.0.1920.1040/-1440.0.1440.860@0.0.1920.1040" timestamp="1584195561060" />
+    <state width="1877" height="338" key="GridCell.Tab.1.bottom" timestamp="1584195553533">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="338" key="GridCell.Tab.1.center/0.0.1920.1040/-1440.0.1440.860@0.0.1920.1040" timestamp="1584127249421" />
-    <state width="1877" height="338" key="GridCell.Tab.1.left" timestamp="1584127249421">
+    <state width="1877" height="338" key="GridCell.Tab.1.bottom/0.0.1920.1040/-1440.0.1440.860@0.0.1920.1040" timestamp="1584195553533" />
+    <state width="1877" height="338" key="GridCell.Tab.1.center" timestamp="1584195553533">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="338" key="GridCell.Tab.1.left/0.0.1920.1040/-1440.0.1440.860@0.0.1920.1040" timestamp="1584127249421" />
-    <state width="1877" height="338" key="GridCell.Tab.1.right" timestamp="1584127249422">
+    <state width="1877" height="338" key="GridCell.Tab.1.center/0.0.1920.1040/-1440.0.1440.860@0.0.1920.1040" timestamp="1584195553533" />
+    <state width="1877" height="338" key="GridCell.Tab.1.left" timestamp="1584195553532">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="338" key="GridCell.Tab.1.right/0.0.1920.1040/-1440.0.1440.860@0.0.1920.1040" timestamp="1584127249422" />
+    <state width="1877" height="338" key="GridCell.Tab.1.left/0.0.1920.1040/-1440.0.1440.860@0.0.1920.1040" timestamp="1584195553532" />
+    <state width="1877" height="338" key="GridCell.Tab.1.right" timestamp="1584195553533">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="338" key="GridCell.Tab.1.right/0.0.1920.1040/-1440.0.1440.860@0.0.1920.1040" timestamp="1584195553533" />
     <state x="461" y="162" key="SettingsEditor" timestamp="1584124872527">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="461" y="162" key="SettingsEditor/0.0.1920.1040/-1440.0.1440.860@0.0.1920.1040" timestamp="1584124872527" />
-    <state x="656" y="252" width="607" height="536" key="find.popup" timestamp="1584122724843">
+    <state x="656" y="252" width="607" height="536" key="find.popup" timestamp="1584194954445">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="656" y="252" width="607" height="536" key="find.popup/0.0.1920.1040/-1440.0.1440.860@0.0.1920.1040" timestamp="1584122724843" />
+    <state x="656" y="252" width="607" height="536" key="find.popup/0.0.1920.1040/-1440.0.1440.860@0.0.1920.1040" timestamp="1584194954445" />
+    <state x="616" y="240" key="run.anything.popup" timestamp="1584195275350">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="616" y="240" key="run.anything.popup/0.0.1920.1040/-1440.0.1440.860@0.0.1920.1040" timestamp="1584195275350" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
