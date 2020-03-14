@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e3ea4456-5474-4d7b-9f6e-8f2c1f9bd1fb" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="e3ea4456-5474-4d7b-9f6e-8f2c1f9bd1fb" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -217,6 +215,7 @@
       <workItem from="1581875282211" duration="4260000" />
       <workItem from="1581920123894" duration="1229000" />
       <workItem from="1584121156002" duration="5392000" />
+      <workItem from="1584189452368" duration="682000" />
     </task>
     <servers />
   </component>
@@ -289,11 +288,6 @@
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" type="php">
-          <url>file://$PROJECT_DIR$/tests/src/CommandTest.php</url>
-          <line>14</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/src/CommandLoader/Loaders/FolderLoader.php</url>
           <line>54</line>
