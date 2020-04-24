@@ -49,10 +49,18 @@ class ApplicationDetector
     protected function initBootstrapApp($app)
     {
         $app->bootstrap();
-        $app->setupRequest();
-        $app->setup();
-        $app->preHandleRequest();
-        $app->preRouting();
+        if (method_exists($app, 'setupRequest')) {
+            $app->setupRequest();
+        }
+        if (method_exists($app, 'setup')) {
+            $app->setup();
+        }
+        if (method_exists($app, 'preHandleRequest')) {
+            $app->preHandleRequest();
+        }
+        if (method_exists($app, 'preRouting')) {
+            $app->preRouting();
+        }
 //        $app->registerConfiguredProviders();
     }
 

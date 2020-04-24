@@ -57,7 +57,7 @@ trait HasLoaders
             /** @var AbstractLoader $loader */
             $loader = new $loader();
             $loader->setContainer($this->getContainer());
-            $this->loaders[] = new $loader();
+            $this->loaders[] = $loader;
         }
     }
 
