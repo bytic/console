@@ -6,6 +6,7 @@ use Nip\Application\Application;
 use Nip\Container\Container;
 use Nip\Container\ServiceProviders\ProviderRepository;
 use Nip\Container\ServiceProviders\Providers\AbstractServiceProvider;
+use Psr\Container\ContainerInterface;
 
 /**
  * Class ServiceProviders
@@ -16,39 +17,60 @@ class ServiceProvidersLoader extends AbstractLoader
     /**
      * @var AbstractServiceProvider[]|ProviderRepository
      */
-    protected $providers = null;
+    protected static $providers = null;
 
     /**
      * @return AbstractServiceProvider[]|ProviderRepository
      */
     public function getProviders(): array
     {
-        if ($this->providers === null) {
+        if (self::$providers === null) {
             $this->setProvidersFromContainer($this->getContainer());
         }
-        return $this->providers;
+        return self::$providers;
+    }
+
+    /**
+     * @param ContainerInterface $container
+     * @deprecated in 1.0 providers and in application
+     */
+    public function setProvidersFromContainer(ContainerInterface $container): void
+    {
+        $providers = [];
+        if (method_exists($container, 'getProviderRepository') ) {
+            $providers = $container->getProviderRepository();
+            if ($providers instanceof ProviderRepository) {
+                static::setProviders($providers->getProviders());
+                return;
+            } else {
+                $providers = [];
+            }
+        }
+
+        static::setProviders($providers);
+        return;
     }
 
     /**
      * @param Application $application
      */
-    public function setProvidersFromApplication(Application $application): void
+    public static function setProvidersFromApplication(Application $application): void
     {
         $providers = $application->getProviderRepository();
         if ($providers instanceof ProviderRepository) {
-            $this->setProviders($providers->getProviders());
+            static::setProviders($providers->getProviders());
             return;
         }
-        $this->setProviders($providers);
+        static::setProviders($providers);
         return;
     }
 
     /**
      * @param AbstractServiceProvider[]|ProviderRepository $providers
      */
-    public function setProviders($providers): void
+    public static function setProviders($providers): void
     {
-        $this->providers = $providers;
+        self::$providers = $providers;
     }
 
     /**

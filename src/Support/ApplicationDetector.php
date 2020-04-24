@@ -61,7 +61,7 @@ class ApplicationDetector
         if (method_exists($app, 'preRouting')) {
             $app->preRouting();
         }
-//        \ByTIC\Console\CommandLoader\Loaders\ServiceProvidersLoader::setProvidersFromApplication($app);
+        \ByTIC\Console\CommandLoader\Loaders\ServiceProvidersLoader::setProvidersFromApplication($app);
 //        $app->registerConfiguredProviders();
     }
 
