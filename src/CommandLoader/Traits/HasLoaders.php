@@ -3,6 +3,7 @@
 namespace ByTIC\Console\CommandLoader\Traits;
 
 use ByTIC\Console\CommandLoader\Loaders\AbstractLoader;
+use ByTIC\Console\CommandLoader\Loaders\FolderLoader;
 use ByTIC\Console\CommandLoader\Loaders\ServiceProvidersLoader;
 
 /**
@@ -53,7 +54,10 @@ trait HasLoaders
     {
         $loaders = $this->getEnabledLoaders();
         foreach ($loaders as $loader) {
-            $this->loaders[] = new $loader();
+            /** @var AbstractLoader $loader */
+            $loader = new $loader();
+            $loader->setContainer($this->getContainer());
+            $this->loaders[] = $loader;
         }
     }
 
@@ -64,6 +68,7 @@ trait HasLoaders
     {
         return [
             ServiceProvidersLoader::class,
+            FolderLoader::class,
         ];
     }
 }

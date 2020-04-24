@@ -14,8 +14,8 @@ class ApplicationDetectorTest extends AbstractTest
 {
     public function test_getContainer()
     {
-        /** @noinspection PhpUnhandledExceptionInspection */
-        $applicationDetector = new ApplicationDetector(TEST_FIXTURE_PATH . '/demoapp');
+        $applicationDetector = \Mockery::mock(ApplicationDetector::class, [TEST_FIXTURE_PATH . '/demoapp'])->makePartial()->shouldAllowMockingProtectedMethods();
+//        $applicationDetector->shouldReceive('initBootstrapApp')->once();
         self::assertInstanceOf(Container::class, $applicationDetector->getContainer());
     }
 }

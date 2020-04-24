@@ -29,6 +29,22 @@ trait DetectBinary
      */
     public static function byticBinary()
     {
-        return defined('BYTIC_BINARY') ? ProcessUtils::escapeArgument(BYTIC_BINARY) : 'bytic';
+        static $path;
+        if (empty($path)) {
+            $path = static::byticBinaryFinder();
+        }
+        return $path;
+    }
+
+    /**
+     * @return string
+     */
+    protected static function byticBinaryFinder()
+    {
+        if (defined('BYTIC_BINARY')) {
+            return ProcessUtils::escapeArgument(BYTIC_BINARY);
+        }
+        require dirname(dirname(__DIR__)) . '/bootstrap/constants.php';
+        return BYTIC_CONSOLE_ROOT_DIR . DIRECTORY_SEPARATOR . 'vendor' . DIRECTORY_SEPARATOR . 'bin' . DIRECTORY_SEPARATOR . 'bytic';
     }
 }

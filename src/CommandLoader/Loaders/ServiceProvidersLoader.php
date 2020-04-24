@@ -16,36 +16,39 @@ class ServiceProvidersLoader extends AbstractLoader
     /**
      * @var AbstractServiceProvider[]|ProviderRepository
      */
-    protected static $providers = [];
+    protected $providers = null;
 
     /**
      * @return AbstractServiceProvider[]|ProviderRepository
      */
-    public static function getProviders(): array
+    public function getProviders(): array
     {
-        return self::$providers;
+        if ($this->providers === null) {
+            $this->setProvidersFromContainer($this->getContainer());
+        }
+        return $this->providers;
     }
 
     /**
      * @param Application $application
      */
-    public static function setProvidersFromApplication(Application $application): void
+    public function setProvidersFromApplication(Application $application): void
     {
         $providers = $application->getProviderRepository();
         if ($providers instanceof ProviderRepository) {
-            static::setProviders($providers->getProviders());
+            $this->setProviders($providers->getProviders());
             return;
         }
-        static::setProviders($providers);
+        $this->setProviders($providers);
         return;
     }
 
     /**
      * @param AbstractServiceProvider[]|ProviderRepository $providers
      */
-    public static function setProviders($providers): void
+    public function setProviders($providers): void
     {
-        self::$providers = $providers;
+        $this->providers = $providers;
     }
 
     /**
@@ -53,8 +56,9 @@ class ServiceProvidersLoader extends AbstractLoader
      */
     protected function generateCommands(): array
     {
+        $providers = $this->getProviders();
         $commands = [];
-        foreach (static::$providers as $provider) {
+        foreach ($providers as $provider) {
             $commands = array_merge($commands, $this->loadCommandsFromProvider($provider));
         }
         return $commands;

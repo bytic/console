@@ -13,7 +13,7 @@ abstract class AbstractTest extends TestCase
 {
     protected $object;
 
-    public function tearDown()
+    public function tearDown() : void
     {
         parent::tearDown();
         m::close();

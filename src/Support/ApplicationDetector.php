@@ -49,10 +49,20 @@ class ApplicationDetector
     protected function initBootstrapApp($app)
     {
         $app->bootstrap();
-
-        /** @var Container $container */
-        $container = $app->getContainer();
-        \ByTIC\Console\CommandLoader\Loaders\ServiceProvidersLoader::setProvidersFromApplication($app);
+        if (method_exists($app, 'setupRequest')) {
+            $app->setupRequest();
+        }
+        if (method_exists($app, 'setup')) {
+            $app->setup();
+        }
+        if (method_exists($app, 'preHandleRequest')) {
+            $app->preHandleRequest();
+        }
+        if (method_exists($app, 'preRouting')) {
+            $app->preRouting();
+        }
+//        \ByTIC\Console\CommandLoader\Loaders\ServiceProvidersLoader::setProvidersFromApplication($app);
+//        $app->registerConfiguredProviders();
     }
 
     /**

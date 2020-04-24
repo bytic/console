@@ -20,6 +20,7 @@ if (!($container instanceof Container)) {
 $app = $container->get(Application::class);
 
 $commandLoader = $container->get(CommandLoader::class);
+$commandLoader->setContainer($container);
 $app->setCommandLoader($commandLoader);
 
 return $app;

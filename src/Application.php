@@ -32,6 +32,6 @@ class Application extends SymfonyApplication
      */
     public static function formatCommandString($string)
     {
-        return sprintf('%s %s %s', static::phpBinary(), static::byticBinary(), $string);
+        return sprintf('%s %s', static::byticBinary(), $string);
     }
 }

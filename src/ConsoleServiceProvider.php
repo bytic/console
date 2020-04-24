@@ -2,7 +2,7 @@
 
 namespace ByTIC\Console;
 
-use Nip\Container\ServiceProvider\AbstractSignatureServiceProvider;
+use Nip\Container\ServiceProviders\Providers\AbstractSignatureServiceProvider;
 
 /**
  * Class ConsoleServiceProvider
