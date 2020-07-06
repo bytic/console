@@ -19,11 +19,7 @@ abstract class Command extends SymfonyCommand
     use Traits\InteractsWithIO;
 
     /**
-     * Run the console command.
-     *
-     * @param \Symfony\Component\Console\Input\InputInterface $input
-     * @param \Symfony\Component\Console\Output\OutputInterface $output
-     * @return int
+     * @inheritDoc
      */
     public function run(InputInterface $input, OutputInterface $output)
     {
@@ -34,11 +30,8 @@ abstract class Command extends SymfonyCommand
     }
 
     /**
-     * Execute the console command.
-     *
-     * @param \Symfony\Component\Console\Input\InputInterface $input
-     * @param \Symfony\Component\Console\Output\OutputInterface $output
-     * @return int
+     * @inheritDoc
+     * @noinspection PhpMissingParentCallCommonInspection
      */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
@@ -50,14 +43,11 @@ abstract class Command extends SymfonyCommand
 
 
     /**
-     * Resolve the console command instance for the given command.
-     *
-     * @param \Symfony\Component\Console\Command\Command|string $command
-     * @return \Symfony\Component\Console\Command\Command
+     * @inheritDoc
      */
     protected function resolveCommand($command)
     {
-        if (!class_exists($command)) {
+        if (!class_exists($command) && is_string($command)) {
             return $this->getApplication()->find($command);
         }
 

@@ -20,10 +20,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e3ea4456-5474-4d7b-9f6e-8f2c1f9bd1fb" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Traits/CallsCommands.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Traits/HasApplication.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.scrutinizer.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.scrutinizer.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.styleci.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.styleci.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.travis.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.travis.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Command.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Command.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Traits/HasApplication.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Traits/HasApplication.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -211,6 +212,7 @@
       </list>
     </recent_temporary>
   </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="project-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -233,11 +235,12 @@
       <workItem from="1588784089143" duration="4212000" />
       <workItem from="1588834354495" duration="704000" />
       <workItem from="1588837000301" duration="2065000" />
+      <workItem from="1594054134117" duration="303000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="2" />
+    <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.History.Properties">
     <option name="COLUMN_ORDER">

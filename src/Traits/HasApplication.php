@@ -2,6 +2,7 @@
 
 namespace ByTIC\Console\Traits;
 
+use Nip\Application\Application;
 use Nip\Container\Container;
 
 /**
@@ -33,7 +34,7 @@ trait HasApplication
     }
 
     /**
-     * @return mixed|Container|object
+     * @return Application|Container
      */
     protected function getByticApp()
     {
