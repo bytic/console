@@ -26,7 +26,7 @@ trait HasApplication
      */
     protected function getFromContainer($name = null)
     {
-        if (!$name) {
+        if (empty($name)) {
             return $this->getContainer();
         }
 

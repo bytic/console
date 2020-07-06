@@ -2,6 +2,7 @@
 
 namespace ByTIC\Console\Traits;
 
+use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\ArrayInput;
 use Symfony\Component\Console\Output\NullOutput;
 use Symfony\Component\Console\Output\OutputInterface;
@@ -9,21 +10,23 @@ use Symfony\Component\Console\Output\OutputInterface;
 /**
  * Trait CallsCommands
  * @package ByTIC\Console\Traits
+ *
+ * @property $output
  */
 trait CallsCommands
 {
     /**
      * Resolve the console command instance for the given command.
      *
-     * @param \Symfony\Component\Console\Command\Command|string $command
-     * @return \Symfony\Component\Console\Command\Command
+     * @param Command|string $command
+     * @return Command
      */
     abstract protected function resolveCommand($command);
 
     /**
      * Call another console command.
      *
-     * @param \Symfony\Component\Console\Command\Command|string $command
+     * @param Command|string $command
      * @param array $arguments
      * @return int
      */
@@ -35,7 +38,7 @@ trait CallsCommands
     /**
      * Call another console command silently.
      *
-     * @param \Symfony\Component\Console\Command\Command|string $command
+     * @param Command|string $command
      * @param array $arguments
      * @return int
      */
@@ -47,9 +50,9 @@ trait CallsCommands
     /**
      * Run the given the console command.
      *
-     * @param \Symfony\Component\Console\Command\Command|string $command
+     * @param Command|string $command
      * @param array $arguments
-     * @param \Symfony\Component\Console\Output\OutputInterface $output
+     * @param OutputInterface $output
      * @return int
      */
     protected function runCommand($command, array $arguments, OutputInterface $output)
