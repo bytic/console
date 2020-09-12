@@ -1,10 +1,17 @@
 #!/usr/bin/env php
 <?php
 
+use Nip\Container\Container;
+
 require dirname(__DIR__) . '/bootstrap/autoload.php';
 
 
+/** @var \ByTIC\Console\Application $app */
 $app = require dirname(__DIR__) . '/bootstrap/app.php';
+
+if (class_exists('\Nip\Http\Request')) {
+    Container::getInstance()->share('request', \Nip\Http\Request::createFromGlobals());
+}
 
 try {
     $app->run();

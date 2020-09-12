@@ -21,6 +21,9 @@ $app = $container->get(Application::class);
 
 $commandLoader = $container->get(CommandLoader::class);
 $commandLoader->setContainer($container);
+
+Container::setInstance($container);
+
 $app->setCommandLoader($commandLoader);
 
 return $app;
