@@ -15,6 +15,6 @@ class DetectBinaryTest extends AbstractTest
     {
         $path = Application::byticBinary();
 
-        self::assertStringEndsWith('vendor\bin\bytic', $path);
+        self::assertStringEndsWith('vendor/bin/bytic', $path);
     }
 }
