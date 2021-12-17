@@ -4,6 +4,7 @@ namespace ByTIC\Console;
 
 use ByTIC\Console\Application\DetectBinary;
 use ByTIC\Console\Application\HasBootstrappers;
+use Nip\Container\ContainerAwareTrait;
 use Symfony\Component\Console\Application as SymfonyApplication;
 
 /**
@@ -12,6 +13,7 @@ use Symfony\Component\Console\Application as SymfonyApplication;
  */
 class Application extends SymfonyApplication
 {
+    use ContainerAwareTrait;
     use HasBootstrappers;
     use DetectBinary;
 

@@ -5,3 +5,5 @@ vendor
 coverage
 coverage.xml
 composer.lock
+
+tests/fixtures/demoapp/.env

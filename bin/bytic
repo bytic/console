@@ -10,7 +10,7 @@ require dirname(__DIR__) . '/bootstrap/autoload.php';
 $app = require dirname(__DIR__) . '/bootstrap/app.php';
 
 if (class_exists('\Nip\Http\Request')) {
-    Container::getInstance()->share('request', \Nip\Http\Request::createFromGlobals());
+    \ByTIC\Console\Support\SetRequestForConsole::bootstrap(Container::getInstance());
 }
 
 try {
