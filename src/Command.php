@@ -11,6 +11,8 @@ use Symfony\Component\Console\Output\OutputInterface;
 /**
  * Class Command
  * @package ByTIC\Console
+ *
+ * @method handle
  */
 abstract class Command extends SymfonyCommand
 {
@@ -21,7 +23,7 @@ abstract class Command extends SymfonyCommand
     /**
      * @inheritDoc
      */
-    public function run(InputInterface $input, OutputInterface $output)
+    public function run(InputInterface $input, OutputInterface $output): int
     {
         $this->output = new OutputStyle($input, $output);
         $this->io = new OutputStyle($input, $output);
@@ -33,7 +35,7 @@ abstract class Command extends SymfonyCommand
      * @inheritDoc
      * @noinspection PhpMissingParentCallCommonInspection
      */
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         if (!method_exists($this, 'handle')) {
             throw new LogicException('You must override the execute() method in the concrete command class or write a handle method.');
@@ -63,4 +65,5 @@ abstract class Command extends SymfonyCommand
 
         return $command;
     }
+
 }

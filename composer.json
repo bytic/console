@@ -24,7 +24,7 @@
     "bytic/router": "^0.9|^1.0",
     "bytic/dispatcher": "^0.9|^1.0",
     "bytic/container": "^0.9|^1.0|^2.0",
-    "bytic/phpqatools": "dev-develop"
+    "bytic/phpqatools": "^1.0"
   },
   "autoload": {
     "psr-4": {
@@ -40,5 +40,15 @@
     }
   },
   "minimum-stability": "dev",
-  "prefer-stable": true
+  "prefer-stable": true,
+  "config": {
+    "allow-plugins": {
+      "dealerdirect/phpcodesniffer-composer-installer": true,
+      "captainhook/plugin-composer": true,
+      "ergebnis/composer-normalize": true,
+      "phpstan/extension-installer": true,
+      "ramsey/composer-repl": true,
+      "bytic/phpqatools": true
+    }
+  }
 }

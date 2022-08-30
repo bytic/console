@@ -5,6 +5,7 @@ namespace ByTIC\Console\CommandLoader;
 use ByTIC\Console\CommandLoader\Traits\HasCommands;
 use ByTIC\Console\CommandLoader\Traits\HasLoaders;
 use Nip\Container\ContainerAwareTrait;
+use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\CommandLoader\CommandLoaderInterface;
 use Symfony\Component\Console\Exception\CommandNotFoundException;
 
@@ -29,7 +30,7 @@ class CommandLoader implements CommandLoaderInterface
     /**
      * @inheritDoc
      */
-    public function get($name)
+    public function get(string $name): Command
     {
         $this->checkLoaded();
         if (!$this->has($name)) {
@@ -41,7 +42,7 @@ class CommandLoader implements CommandLoaderInterface
     /**
      * @inheritDoc
      */
-    public function has($name)
+    public function has(string $name): bool
     {
         $this->checkLoaded();
         return isset($this->commands[$name]);
@@ -50,7 +51,7 @@ class CommandLoader implements CommandLoaderInterface
     /**
      * @inheritDoc
      */
-    public function getNames()
+    public function getNames(): array
     {
         $this->checkLoaded();
         return array_keys($this->commands);
