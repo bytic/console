@@ -1,100 +1,58 @@
 <?php
 
+declare(strict_types=1);
+
 namespace ByTIC\Console\CommandLoader\Loaders;
 
-use Nip\Application\Application;
-use Nip\Container\Container;
 use Nip\Container\ServiceProviders\ProviderRepository;
-use Nip\Container\ServiceProviders\Providers\AbstractServiceProvider;
 use Psr\Container\ContainerInterface;
 
-/**
- * Class ServiceProviders
- * @package ByTIC\Console\CommandLoader\Loaders
- */
 class ServiceProvidersLoader extends AbstractLoader
 {
-    /**
-     * @var AbstractServiceProvider[]|ProviderRepository
-     */
-    protected static $providers = null;
+    /** @var list<object>|null */
+    protected ?array $providers = null;
 
-    /**
-     * @return AbstractServiceProvider[]|ProviderRepository
-     */
+    /** @return list<object> */
     public function getProviders(): array
     {
-        if (self::$providers === null) {
-            $this->setProvidersFromContainer($this->getContainer());
+        if ($this->providers !== null) {
+            return $this->providers;
         }
-        return self::$providers;
+        $container = $this->getContainer();
+        $repository = method_exists($container, 'getProviderRepository')
+            ? $container->getProviderRepository()
+            : null;
+
+        return $repository instanceof ProviderRepository ? array_values($repository->getProviders()) : [];
     }
 
-    /**
-     * @param ContainerInterface $container
-     * @deprecated in 1.0 providers and in application
-     */
     public function setProvidersFromContainer(ContainerInterface $container): void
     {
-        $providers = [];
-        if (method_exists($container, 'getProviderRepository') ) {
-            $providers = $container->getProviderRepository();
-            if ($providers instanceof ProviderRepository) {
-                static::setProviders($providers->getProviders());
-                return;
-            } else {
-                $providers = [];
+        $providers = method_exists($container, 'getProviderRepository')
+            ? $container->getProviderRepository()
+            : [];
+        $this->setProviders($providers);
+    }
+
+    /** @param iterable<object> $providers */
+    public function setProviders(iterable|ProviderRepository $providers): void
+    {
+        if ($providers instanceof ProviderRepository) {
+            $providers = $providers->getProviders();
+        }
+        $this->providers = is_array($providers) ? array_values($providers) : iterator_to_array($providers, false);
+        $this->reset();
+    }
+
+    protected function generateCommands(): array
+    {
+        $commands = [];
+        foreach ($this->getProviders() as $provider) {
+            if (method_exists($provider, 'getCommands')) {
+                $commands = array_merge($commands, $provider->getCommands());
             }
         }
 
-        static::setProviders($providers);
-        return;
-    }
-
-    /**
-     * @param Application $application
-     */
-    public static function setProvidersFromApplication(Application $application): void
-    {
-        $providers = $application->getProviderRepository();
-        if ($providers instanceof ProviderRepository) {
-            static::setProviders($providers->getProviders());
-            return;
-        }
-        static::setProviders($providers);
-        return;
-    }
-
-    /**
-     * @param AbstractServiceProvider[]|ProviderRepository $providers
-     */
-    public static function setProviders($providers): void
-    {
-        self::$providers = $providers;
-    }
-
-    /**
-     * @return array
-     */
-    protected function generateCommands(): array
-    {
-        $providers = $this->getProviders();
-        $commands = [];
-        foreach ($providers as $provider) {
-            $commands = array_merge($commands, $this->loadCommandsFromProvider($provider));
-        }
         return $commands;
-    }
-
-    /**
-     * @param AbstractServiceProvider $provider
-     * @return array
-     */
-    protected function loadCommandsFromProvider($provider)
-    {
-        if (method_exists($provider, 'getCommands')) {
-            return $provider->getCommands();
-        }
-        return [];
     }
 }

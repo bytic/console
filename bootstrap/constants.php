@@ -1,22 +1,23 @@
 <?php
 
-if (defined('BYTIC_CONSOLE_COMPOSER_INSTALL')) {
-    return;
-}
+declare(strict_types=1);
 
-$deployFilePath = dirname(__DIR__);
+if (!defined('BYTIC_CONSOLE_COMPOSER_INSTALL')) {
+    $autoloaders = [
+        $GLOBALS['_composer_autoload_path'] ?? '',
+        dirname(__DIR__) . '/vendor/autoload.php',
+        __DIR__ . '/../../../autoload.php',
+    ];
 
-$autoload = [
-    $deployFilePath . '/vendor/autoload.php',
-    __DIR__ . '/../../../autoload.php',
-    __DIR__ . '/../vendor/autoload.php'
-];
-
-foreach ($autoload as $path) {
-    if (file_exists($path)) {
-        define('BYTIC_CONSOLE_COMPOSER_INSTALL', $path);
-        define('BYTIC_CONSOLE_ROOT_DIR', realpath(dirname($path) . '/..'));
-        break;
+    foreach ($autoloaders as $autoload) {
+        if ($autoload !== '' && is_file($autoload)) {
+            define('BYTIC_CONSOLE_COMPOSER_INSTALL', realpath($autoload));
+            break;
+        }
     }
+    unset($autoloaders, $autoload);
 }
-unset($path);
+
+if (!defined('BYTIC_CONSOLE_ROOT_DIR') && defined('BYTIC_CONSOLE_COMPOSER_INSTALL')) {
+    define('BYTIC_CONSOLE_ROOT_DIR', dirname(BYTIC_CONSOLE_COMPOSER_INSTALL, 2));
+}

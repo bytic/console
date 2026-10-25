@@ -1,17 +1,17 @@
 <?php
 
+declare(strict_types=1);
+
 namespace ByTIC\Console\Tests\Fixtures\ServiceProviders;
 
 /**
  * Class GenericServiceProvider
- * @package ByTIC\Console\Tests\Fixtures\ServiceProviders
  */
-class GenericServiceProvider extends \Nip\Container\ServiceProvider\AbstractServiceProvider
+class GenericServiceProvider extends \Nip\Container\ServiceProviders\Providers\AbstractServiceProvider
 {
-
     public function registerCommands()
     {
-        $this->commands('SomeCommand');
+        $this->commands(\App\Console\Model\TestCommand::class);
     }
 
     /**

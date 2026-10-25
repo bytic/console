@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace ByTIC\Console\Tests\CommandLoader\Traits;
 
 use ByTIC\Console\CommandLoader\CommandLoader;
@@ -9,7 +11,6 @@ use Nip\Container\Container;
 
 /**
  * Class HasLoadersTest
- * @package ByTIC\Console\Tests\CommandLoader\Traits
  */
 class HasLoadersTest extends AbstractTest
 {

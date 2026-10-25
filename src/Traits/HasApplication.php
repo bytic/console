@@ -1,30 +1,49 @@
 <?php
 
+declare(strict_types=1);
+
 namespace ByTIC\Console\Traits;
 
 use Nip\Application\Application;
 use Nip\Container\Container;
+use Psr\Container\ContainerInterface;
+use Symfony\Component\Console\Exception\LogicException;
 
 /**
  * Trait HasApplication
- * @package ByTIC\Console\Traits
  */
 trait HasApplication
 {
+    protected ?ContainerInterface $container = null;
+
+    public function setContainer(ContainerInterface $container): static
+    {
+        $this->container = $container;
+
+        return $this;
+    }
 
     /**
-     * @return Container
+     * @return ContainerInterface
      */
-    public function getContainer()
+    public function getContainer(): ContainerInterface
     {
-        return Container::getInstance();
+        if ($this->container !== null) {
+            return $this->container;
+        }
+        $application = $this->getApplication();
+        if ($application instanceof \ByTIC\Console\Application && $application->hasContainer()) {
+            return $application->getContainer();
+        }
+
+        throw new LogicException('No container configured for this command.');
     }
 
     /**
      * @param null|string $name
      * @return mixed|Container|object
      */
-    protected function getFromContainer($name = null)
+    protected function getFromContainer(?string $name = null): mixed
     {
         if (empty($name)) {
             return $this->getContainer();
@@ -34,10 +53,15 @@ trait HasApplication
     }
 
     /**
-     * @return Application|Container
+     * @return Application
      */
-    protected function getByticApp()
+    protected function getByticApp(): Application
     {
-        return $this->getFromContainer('app');
+        $application = $this->getFromContainer('app');
+        if (!$application instanceof Application) {
+            throw new LogicException('The app service must be a ByTIC application.');
+        }
+
+        return $application;
     }
 }

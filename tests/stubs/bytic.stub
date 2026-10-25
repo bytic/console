@@ -1,0 +1,22 @@
+<?php
+
+namespace Nip\Container {
+    /**
+     * The ByTIC bridge forwards ContainerBuilder methods through __call().
+     *
+     * @method bool hasDefinition(string $id)
+     */
+    class Container
+    {
+    }
+}
+
+namespace Nip\Http {
+    class Request
+    {
+        /** @param self|null $newInstance */
+        public static function instance($newInstance = null): self
+        {
+        }
+    }
+}

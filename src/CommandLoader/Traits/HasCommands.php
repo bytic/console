@@ -1,76 +1,83 @@
 <?php
 
+declare(strict_types=1);
+
 namespace ByTIC\Console\CommandLoader\Traits;
 
+use ByTIC\Console\Command;
 use Closure;
 use Symfony\Component\Console\Command\Command as SymfonyCommand;
+use Symfony\Component\Console\Exception\LogicException;
 
-/**
- * Trait HasCommands
- * @package ByTIC\Console\CommandLoader\Traits
- */
 trait HasCommands
 {
-    /**
-     * @var SymfonyCommand[]
-     */
-    protected $commands = [];
+    /** @var array<string, SymfonyCommand> */
+    protected array $commands = [];
 
-    /**
-     * @param SymfonyCommand $command
-     */
-    public function addCommand(SymfonyCommand $command)
+    public function addCommand(SymfonyCommand $command): void
     {
-        $this->commands[$command->getName()] = $command;
+        $names = array_merge([$command->getName()], $command->getAliases());
+        foreach ($names as $name) {
+            if (!is_string($name) || $name === '') {
+                throw new LogicException('Commands must have a non-empty name.');
+            }
+            if (isset($this->commands[$name]) && $this->commands[$name] !== $command) {
+                throw new LogicException(sprintf('Duplicate command name or alias "%s".', $name));
+            }
+        }
+        foreach ($names as $name) {
+            $this->commands[$name] = $command;
+        }
     }
 
-    /**
-     * @return SymfonyCommand[]
-     */
+    /** @return array<string, SymfonyCommand> */
     public function getCommands(): array
     {
+        $this->checkLoaded();
+
         return $this->commands;
     }
 
-    /**
-     * @param SymfonyCommand[] $commands
-     */
+    /** @param array<array-key, SymfonyCommand> $commands */
     public function setCommands(array $commands): void
     {
-        $this->commands = $commands;
+        $previous = $this->commands;
+        $this->commands = [];
+        try {
+            foreach ($commands as $command) {
+                $this->addCommand($command);
+            }
+        } catch (\Throwable $exception) {
+            $this->commands = $previous;
+            throw $exception;
+        }
     }
 
-    /**
-     * Resolve an array of commands through the application.
-     *
-     * @param array|mixed $commands
-     * @return $this
-     */
-    public function resolveCommands($commands)
+    /** @param array<array-key, SymfonyCommand|class-string<SymfonyCommand>|Closure> $commands */
+    public function resolveCommands(array $commands): static
     {
-        $commands = is_array($commands) ? $commands : func_get_args();
-
         foreach ($commands as $command) {
             $this->addCommand($this->resolve($command));
         }
+
         return $this;
     }
 
-    /**
-     * Add a command, resolving through the application.
-     *
-     * @param string $command
-     * @return SymfonyCommand
-     */
-    public function resolve($command)
+    public function resolve(mixed $command): SymfonyCommand
     {
         if ($command instanceof Closure) {
-            return $command();
+            $command = $command();
+        } elseif (is_string($command)) {
+            $command = $this->getContainer()->get($command);
         }
-        if (is_string($command)) {
-            /** @var SymfonyCommand $command */
-            $command = new $command();
+
+        if (!$command instanceof SymfonyCommand) {
+            throw new LogicException('Command registrations must resolve to a Symfony command.');
         }
+        if ($command instanceof Command) {
+            $command->setContainer($this->getContainer());
+        }
+
         return $command;
     }
 }

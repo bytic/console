@@ -1,0 +1,69 @@
+# Activate by copying to .github/workflows/ci.yml with workflows write permission.
+name: CI
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  tests:
+    name: PHP ${{ matrix.php }} / Console ${{ matrix.console }} / Process ${{ matrix.process }} / Finder ${{ matrix.finder }}${{ matrix.lowest && ' (lowest)' || '' }}
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          # Archived Process branches contain known vulnerabilities: use patched minors.
+          - { php: '8.2', console: '6.0.*', process: '^6.4', finder: '^6.0' }
+          - { php: '8.2', console: '^6.4', process: '^6.4', finder: '^6.4' }
+          - { php: '8.2', console: '7.0.*', process: '^7.4', finder: '^7.0' }
+          - { php: '8.2', console: '^7.4', process: '^7.4', finder: '^7.4' }
+          - { php: '8.3', console: '^7.4', process: '^7.4', finder: '^7.4' }
+          - { php: '8.4', console: '^7.4', process: '^7.4', finder: '^7.4' }
+          - { php: '8.4', console: '8.0.*', process: '8.0.*', finder: '8.0.*' }
+          - { php: '8.4', console: '^8.0', process: '^8.0', finder: '^8.0' }
+          - { php: '8.5', console: '^8.0', process: '^8.0', finder: '^8.0' }
+          - { php: '8.5', console: '^7.4', process: '^8.0', finder: '^8.0' }
+          - { php: '8.5', console: '^8.0', process: '^7.4', finder: '^7.4' }
+          - { php: '8.2', console: '^6.4', process: '^6.4', finder: '^6.4', lowest: true }
+    steps:
+      - uses: actions/checkout@v4
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php }}
+          tools: composer:v2
+          coverage: none
+      - name: Resolve runtime compatibility independently of the formatter
+        run: |
+          composer remove --dev friendsofphp/php-cs-fixer --no-update --no-interaction
+          composer update --no-interaction --no-plugins --no-scripts --prefer-dist --no-progress \
+            ${{ matrix.lowest && '--prefer-lowest --prefer-stable' || '' }} \
+            --with 'symfony/console:${{ matrix.console }}' \
+            --with 'symfony/process:${{ matrix.process }}' \
+            --with 'symfony/finder:${{ matrix.finder }}'
+      - run: composer test
+      - run: composer audit
+      - name: Test an installed consumer without development dependencies
+        env:
+          CONSOLE_VERSION: ${{ matrix.console }}
+          PROCESS_VERSION: ${{ matrix.process }}
+          FINDER_VERSION: ${{ matrix.finder }}
+        run: php tests/production-smoke.php
+
+  quality:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.2'
+          tools: composer:v2
+          coverage: none
+      - run: composer update --no-interaction --no-plugins --no-scripts --prefer-dist --no-progress
+      - run: composer validate --strict
+      - run: composer analyse
+      - run: composer format:check
+      - run: composer audit

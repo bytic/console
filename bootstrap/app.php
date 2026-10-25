@@ -1,29 +1,17 @@
 <?php
 
+declare(strict_types=1);
+
 use ByTIC\Console\Application;
-use ByTIC\Console\CommandLoader\CommandLoader;
+use ByTIC\Console\ConsoleServiceProvider;
 use ByTIC\Console\Support\ApplicationDetector;
 use Nip\Container\Container;
 
-$container = (new ApplicationDetector())->getContainer();
-
-/** @var Container $container */
-if (!isset($container)) {
-    $container = Container::getInstance();
-}
-if (!($container instanceof Container)) {
-    $container = new Container();
-    Container::setInstance($container);
-}
-
-/** @var ByTIC\Console\Application $app */
-$app = $container->get(Application::class);
-
-$commandLoader = $container->get(CommandLoader::class);
-$commandLoader->setContainer($container);
-
+$container = (new ApplicationDetector())->getContainer() ?? new Container();
 Container::setInstance($container);
 
-$app->setCommandLoader($commandLoader);
+$provider = new ConsoleServiceProvider();
+$provider->setContainer($container);
+$provider->register();
 
-return $app;
+return $container->get(Application::class);

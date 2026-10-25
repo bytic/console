@@ -1,30 +1,39 @@
 <?php
 
+declare(strict_types=1);
+
 namespace ByTIC\Console\CommandLoader;
 
 use ByTIC\Console\CommandLoader\Traits\HasCommands;
 use ByTIC\Console\CommandLoader\Traits\HasLoaders;
 use Nip\Container\ContainerAwareTrait;
+use Psr\Container\ContainerInterface;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\CommandLoader\CommandLoaderInterface;
 use Symfony\Component\Console\Exception\CommandNotFoundException;
 
 /**
  * Class CommandLoader
- * @package ByTIC\Console\CommandLoader
  */
 class CommandLoader implements CommandLoaderInterface
 {
     use HasLoaders;
     use HasCommands;
-    use ContainerAwareTrait;
+    use ContainerAwareTrait {
+        setContainer as private assignContainer;
+    }
 
-    /**
-     * CommandLoader constructor.
-     */
-    public function __construct()
+    public function setContainer(ContainerInterface $container): static
     {
-//        $this->initLoaders();
+        if ($this->container !== $container) {
+            $this->assignContainer($container);
+            foreach ($this->loaders ?? [] as $loader) {
+                $loader->setContainer($container);
+            }
+            $this->reset();
+        }
+
+        return $this;
     }
 
     /**
