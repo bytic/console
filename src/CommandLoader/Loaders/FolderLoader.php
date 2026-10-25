@@ -78,7 +78,7 @@ class FolderLoader extends AbstractLoader
                 }
                 $relative = substr($path, strlen($base) + 1, -4);
                 $class = rtrim($namespace, '\\') . '\\' . str_replace(DIRECTORY_SEPARATOR, '\\', $relative);
-                if (!class_exists($class)) {
+                if (!class_exists($class) && !interface_exists($class, false) && !trait_exists($class, false)) {
                     throw new \LogicException(sprintf('Command file "%s" does not autoload as "%s".', $path, $class));
                 }
                 if (is_subclass_of($class, Command::class) && !(new ReflectionClass($class))->isAbstract()) {
