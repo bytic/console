@@ -27,6 +27,11 @@ try {
         ]],
         'require' => [
             'bytic/console' => '^2.0',
+            'bytic/application' => '^1.0 || ^2.0',
+            'bytic/container' => '^1.0 || ^2.0',
+            'bytic/dispatcher' => '^1.0 || ^2.0',
+            'bytic/router' => '^1.0 || ^2.0',
+            'bytic/staging' => '^1.0 || ^2.0',
             'symfony/console' => getenv('CONSOLE_VERSION') ?: '^8.0',
             'symfony/process' => getenv('PROCESS_VERSION') ?: '^8.0',
             'symfony/finder' => getenv('FINDER_VERSION') ?: '^8.0',

@@ -4,7 +4,7 @@
 
 ### Added
 
-- Explicit production dependencies and PHP 8.2 baseline.
+- Explicit production dependency constraints and PHP 8.2 baseline.
 - An inactive CI template with Symfony Console, Finder, and Process 6/7/8 compatibility jobs, including
   compatible mixed 7/8 installations.
 - Shared console services, container-backed command construction, attribute-based

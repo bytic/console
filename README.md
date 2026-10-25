@@ -8,7 +8,12 @@ command discovery and convenient input/output helpers.
 - PHP 8.2 or newer within PHP 8.
 - Symfony Console, Process, and Finder 6.x, 7.x, or 8.x.
 - Symfony 8.0 requires PHP 8.4; later Symfony releases may require a newer patch.
-- Composer 2 and the ByTIC runtime dependencies declared in `composer.json`.
+- Composer 2 and the runtime dependencies declared in `composer.json`.
+
+ByTIC application, container, dispatcher, router, and staging packages are
+development dependencies of this library. Applications using ByTIC integration
+must require those packages in their own `composer.json`; they are not installed
+by `composer require bytic/console` alone.
 
 Install with `composer require bytic/console:^2.0`. Until the stable release is
 published, use the appropriate prerelease version explicitly.

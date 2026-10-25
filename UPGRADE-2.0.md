@@ -7,13 +7,14 @@ Console, Process, and Finder accept `^6.0 || ^7.0 || ^8.0`; Symfony's own PHP
 requirements determine which versions Composer can install. Use security-patched
 releases, not archived vulnerable Process minors.
 
-ByTIC dependencies used by production code are now runtime requirements.
-The tested baselines are application 1.0.18, container 2.0.7, HTTP 2.0.7,
-router 2.0.1, dispatcher/config 2.0.0, staging 1.0.7, and utility 1.0.92.
-HTTP and router cannot be
-treated as optional while the current ByTIC application loads their traits.
-Compatible mixtures of Symfony 7 and 8 components are supported; a completely
-Symfony-8-based ByTIC runtime needs separate upstream dependency updates.
+ByTIC application, container, dispatcher, router, and staging dependencies
+remain development-only, with their supported major ranges updated to 1.x/2.x.
+Applications using the ByTIC integration must declare the required packages in
+their own `composer.json`. Runtime requirements still include the HTTP, config,
+and utility components used by the package's production integration.
+Compatible mixtures of Symfony 7 and 8 components are supported; a
+completely Symfony-8-based ByTIC runtime needs separate upstream dependency
+updates.
 Console 8.1 specifically conflicts with the DI versions currently allowed by
 `bytic/container`, so Console 8.0 is the latest resolvable branch until that
 upstream package is updated. Process/Finder 8.1 remain independently usable.
