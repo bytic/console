@@ -1,23 +1,37 @@
 <?php
 
+declare(strict_types=1);
+
 namespace ByTIC\Console\CommandLoader\Loaders;
 
 use Nip\Container\ContainerAwareTrait;
+use Psr\Container\ContainerInterface;
 
 /**
  * Class AbstractLoader
- * @package ByTIC\Console\CommandLoader\Loaders
  */
 abstract class AbstractLoader
 {
-    use ContainerAwareTrait;
+    use ContainerAwareTrait {
+        setContainer as private assignContainer;
+    }
 
-    protected $commands = null;
+    protected ?array $commands = null;
+
+    public function setContainer(ContainerInterface $container): static
+    {
+        if ($this->container !== $container) {
+            $this->assignContainer($container);
+            $this->reset();
+        }
+
+        return $this;
+    }
 
     /**
      * @return array
      */
-    public function getCommands()
+    public function getCommands(): array
     {
         if ($this->commands === null) {
             $this->commands = $this->generateCommands();
@@ -28,5 +42,10 @@ abstract class AbstractLoader
     /**
      * @return array
      */
-    abstract protected function generateCommands() : array;
+    abstract protected function generateCommands(): array;
+
+    public function reset(): void
+    {
+        $this->commands = null;
+    }
 }

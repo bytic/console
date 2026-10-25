@@ -1,12 +1,13 @@
 <?php
 
+declare(strict_types=1);
+
 namespace ByTIC\Console\Support;
 
 /**
  * Class ProcessUtils
- * @package ByTIC\Console\Support
  */
-class ProcessUtils extends \Symfony\Component\Process\ProcessUtils
+final class ProcessUtils
 {
     /**
      * Escapes a string to be used as a shell argument.
@@ -14,7 +15,7 @@ class ProcessUtils extends \Symfony\Component\Process\ProcessUtils
      * @param string $argument
      * @return string
      */
-    public static function escapeArgument($argument)
+    public static function escapeArgument(string $argument): string
     {
         // Fix for PHP bug #43784 escapeshellarg removes % from given string
         // Fix for PHP bug #49446 escapeshellarg doesn't work on Windows
@@ -56,7 +57,7 @@ class ProcessUtils extends \Symfony\Component\Process\ProcessUtils
      * @param string $char
      * @return bool
      */
-    protected static function isSurroundedBy($arg, $char)
+    protected static function isSurroundedBy(string $arg, string $char): bool
     {
         return 2 < strlen($arg) && $char === $arg[0] && $char === $arg[strlen($arg) - 1];
     }

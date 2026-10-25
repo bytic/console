@@ -1,20 +1,21 @@
 #!/usr/bin/env php
 <?php
 
-use Nip\Container\Container;
+declare(strict_types=1);
 
-require dirname(__DIR__) . '/bootstrap/autoload.php';
-
-
-/** @var \ByTIC\Console\Application $app */
-$app = require dirname(__DIR__) . '/bootstrap/app.php';
-
-if (class_exists('\Nip\Http\Request')) {
-    \ByTIC\Console\Support\SetRequestForConsole::bootstrap(Container::getInstance());
-}
+use ByTIC\Console\Support\SetRequestForConsole;
 
 try {
-    $app->run();
-} catch (\Exception $e) {
-    // Handle application's exceptions
+    require dirname(__DIR__) . '/bootstrap/autoload.php';
+
+    /** @var \ByTIC\Console\Application $application */
+    $application = require dirname(__DIR__) . '/bootstrap/app.php';
+    if ($application->getContainer()->has('app')) {
+        SetRequestForConsole::bootstrap($application->getContainer());
+    }
+
+    exit($application->run());
+} catch (Throwable $exception) {
+    fwrite(STDERR, $exception->getMessage() . PHP_EOL);
+    exit(1);
 }

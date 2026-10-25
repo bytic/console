@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace ByTIC\Console\Traits;
 
 use Symfony\Component\Console\Command\Command;
@@ -9,9 +11,8 @@ use Symfony\Component\Console\Output\OutputInterface;
 
 /**
  * Trait CallsCommands
- * @package ByTIC\Console\Traits
  *
- * @property $output
+ * @property OutputInterface $output
  */
 trait CallsCommands
 {
@@ -21,7 +22,7 @@ trait CallsCommands
      * @param Command|string $command
      * @return Command
      */
-    abstract protected function resolveCommand($command);
+    abstract protected function resolveCommand(mixed $command): Command;
 
     /**
      * Call another console command.
@@ -30,7 +31,7 @@ trait CallsCommands
      * @param array $arguments
      * @return int
      */
-    public function call($command, array $arguments = [])
+    public function call(Command|string $command, array $arguments = []): int
     {
         return $this->runCommand($command, $arguments, $this->output);
     }
@@ -42,9 +43,9 @@ trait CallsCommands
      * @param array $arguments
      * @return int
      */
-    public function callSilent($command, array $arguments = [])
+    public function callSilent(Command|string $command, array $arguments = []): int
     {
-        return $this->runCommand($command, $arguments, new NullOutput);
+        return $this->runCommand($command, $arguments, new NullOutput());
     }
 
     /**
@@ -55,12 +56,16 @@ trait CallsCommands
      * @param OutputInterface $output
      * @return int
      */
-    protected function runCommand($command, array $arguments, OutputInterface $output)
+    protected function runCommand(Command|string $command, array $arguments, OutputInterface $output): int
     {
-        $arguments['command'] = $command;
+        $command = $this->resolveCommand($command);
+        if ($command->getApplication() !== null) {
+            $arguments['command'] = $command->getName();
+        }
 
-        return $this->resolveCommand($command)->run(
-            $this->createInputFromArguments($arguments), $output
+        return $command->run(
+            $this->createInputFromArguments($arguments),
+            $output,
         );
     }
 
@@ -70,9 +75,10 @@ trait CallsCommands
      * @param array $arguments
      * @return \Symfony\Component\Console\Input\ArrayInput
      */
-    protected function createInputFromArguments(array $arguments)
+    protected function createInputFromArguments(array $arguments): ArrayInput
     {
         $input = new ArrayInput(array_merge($this->context(), $arguments));
+        $input->setInteractive($this->input->isInteractive());
 
         if ($input->hasParameterOption(['--no-interaction'], true)) {
             $input->setInteractive(false);
@@ -85,7 +91,7 @@ trait CallsCommands
      *
      * @return array
      */
-    protected function context()
+    protected function context(): array
     {
         return [];
     }

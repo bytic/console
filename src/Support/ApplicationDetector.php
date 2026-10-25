@@ -1,99 +1,67 @@
 <?php
 
+declare(strict_types=1);
+
 namespace ByTIC\Console\Support;
 
-use Exception;
 use Nip\Application\Application;
 use Nip\Container\Container;
 
-/**
- * Class ApplicationDetector
- * @package ByTIC\Console\Support
- */
 class ApplicationDetector
 {
-    protected $basePath = '';
+    protected string $basePath;
+    private ?Container $container = null;
 
-    /**
-     * ApplicationDetector constructor.
-     * @param string $basePath
-     * @throws Exception
-     */
-    public function __construct(string $basePath = null)
+    public function __construct(?string $basePath = null)
     {
-        if ($basePath === null) {
-            $basePath = defined('BYTIC_CONSOLE_ROOT_DIR') ? BYTIC_CONSOLE_ROOT_DIR : null;
-        }
-        if (!is_dir($basePath)) {
-            throw new Exception("BasePath in " . __CLASS__ . ' cannot be null or invalid directory [' . $basePath . ']');
+        $basePath ??= defined('BYTIC_CONSOLE_ROOT_DIR') ? BYTIC_CONSOLE_ROOT_DIR : null;
+        if ($basePath === null || !is_dir($basePath)) {
+            throw new \InvalidArgumentException(sprintf('Invalid console base directory "%s".', $basePath ?? ''));
         }
         $this->basePath = $basePath;
     }
 
-    /**
-     * @return Container|boolean
-     */
-    public function getContainer()
+    public function getContainer(): ?Container
     {
-        $app = $this->getBootstrapApp();
-        if ($app === false) {
-            return false;
+        if ($this->container !== null) {
+            return $this->container;
         }
-        $this->initBootstrapApp($app);
-        return $app->getContainer();
-    }
+        $file = $this->initAppFile();
+        if ($file === null) {
+            return null;
+        }
+        $app = require $file;
+        if (!$app instanceof Application) {
+            throw new \UnexpectedValueException(sprintf('Bootstrap "%s" must return a ByTIC application.', $file));
+        }
 
-    /**
-     * @param Application $app
-     */
-    protected function initBootstrapApp($app)
-    {
+        if (!$app->hasContainer()) {
+            $app->initContainer();
+        }
+        $container = $app->getContainer();
+        if (!$container instanceof Container) {
+            throw new \UnexpectedValueException('The ByTIC application must provide a ByTIC container.');
+        }
+        Container::setInstance($container);
+        $container->set('app', $app);
+        if (!$container->has('path')) {
+            $container->setParameter('path', $app->path());
+        }
         $app->bootstrap();
-        if (method_exists($app, 'setupRequest')) {
-            $app->setupRequest();
-        }
-        if (method_exists($app, 'setup')) {
-            $app->setup();
-        }
-        if (method_exists($app, 'preHandleRequest')) {
-            $app->preHandleRequest();
-        }
-        if (method_exists($app, 'preRouting')) {
-            $app->preRouting();
-        }
-        \ByTIC\Console\CommandLoader\Loaders\ServiceProvidersLoader::setProvidersFromApplication($app);
-//        $app->registerConfiguredProviders();
+        $container->setProviderRepository($app->getProviderRepository());
+        $this->container = $container;
+
+        return $this->container;
     }
 
-    /**
-     * @return mixed
-     */
-    protected function getBootstrapApp()
+    protected function initAppFile(): ?string
     {
-        $appFile = $this->initAppFile();
-        if ($appFile === false) {
-            return false;
+        $base = realpath($this->basePath);
+        if ($base === dirname(__DIR__, 2)) {
+            return null;
         }
+        $file = $base . DIRECTORY_SEPARATOR . 'bootstrap' . DIRECTORY_SEPARATOR . 'app.php';
 
-        /** @noinspection PhpIncludeInspection */
-        $app = require_once $appFile;
-        return $app;
-    }
-
-    /**
-     * @return bool|string
-     */
-    protected function initAppFile()
-    {
-        $baseDir = realpath($this->basePath);
-
-        if ($baseDir == dirname(dirname(__DIR__))) {
-            return false;
-        }
-        $appFile = realpath($baseDir . '/bootstrap/app.php');
-        if (!file_exists($appFile)) {
-            return false;
-        }
-        return $appFile;
+        return is_file($file) ? $file : null;
     }
 }

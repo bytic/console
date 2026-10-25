@@ -1,54 +1,44 @@
 <?php
 
+declare(strict_types=1);
+
 namespace ByTIC\Console\Support;
 
+use Nip\Container\Container;
 use Nip\Http\Request;
 use Nip\Router\RequestContext;
-use function config;
 
 class SetRequestForConsole
 {
-    /**
-     * Bootstrap the given application.
-     *
-     * @param $container
-     * @return void
-     */
-    public static function bootstrap($container)
+    public static function bootstrap(Container $container): void
     {
-        $uri = static::detectUrl();
-
+        $uri = static::detectUrl($container);
         $components = parse_url($uri);
+        if ($components === false || !isset($components['scheme'], $components['host'])) {
+            throw new \InvalidArgumentException(sprintf('Invalid console application URL "%s".', $uri));
+        }
 
         $server = $_SERVER;
-
         if (isset($components['path'])) {
-            $server = array_merge($server, [
-                'SCRIPT_FILENAME' => $components['path'],
-                'SCRIPT_NAME' => $components['path'],
-            ]);
+            $server['SCRIPT_FILENAME'] = $components['path'];
+            $server['SCRIPT_NAME'] = $components['path'];
         }
-        $request =  Request::create(
-            $uri, 'GET', [], [], [], $server
-        );
+        $request = Request::create($uri, 'GET', [], [], [], $server);
         Request::instance($request);
-        $container->set('request',$request);
+        $container->set('request', $request);
 
         if ($container->has('router')) {
-            $context = (new RequestContext)->fromRequest($request);
-            app('router')->setContext($context);
+            $context = (new RequestContext())->fromRequest($request);
+            $container->get('router')->setContext($context);
         }
     }
 
-    protected static function detectUrl()
+    protected static function detectUrl(Container $container): string
     {
-        $default = 'http://localhost';
-
-        $container = \Nip\Container\Container::getInstance();
-        if (false === $container->has('config')) {
-            return $default;
+        if (!$container->has('config')) {
+            return 'http://localhost';
         }
 
-        return config('app.url', $default);
+        return $container->get('config')->get('app.url', 'http://localhost');
     }
 }

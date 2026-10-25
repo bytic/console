@@ -1,15 +1,18 @@
 <?php
 
+declare(strict_types=1);
+
 namespace ByTIC\Console;
 
 use ByTIC\Console\Application\DetectBinary;
 use ByTIC\Console\Application\HasBootstrappers;
+use ByTIC\Console\Support\ProcessUtils;
 use Nip\Container\ContainerAwareTrait;
 use Symfony\Component\Console\Application as SymfonyApplication;
+use Composer\InstalledVersions;
 
 /**
  * Class Application
- * @package ByTIC\Console
  */
 class Application extends SymfonyApplication
 {
@@ -20,9 +23,12 @@ class Application extends SymfonyApplication
     /**
      * @inheritDoc
      */
-    public function __construct($name = 'BYTIC Console', $version = 'v1.0.0')
+    public function __construct(string $name = 'BYTIC Console', ?string $version = null)
     {
-        parent::__construct($name, $version);
+        $version ??= InstalledVersions::isInstalled('bytic/console')
+            ? InstalledVersions::getPrettyVersion('bytic/console')
+            : '2.0-dev';
+        parent::__construct($name, $version ?? '2.0-dev');
         $this->bootstrap();
     }
 
@@ -32,8 +38,8 @@ class Application extends SymfonyApplication
      * @param  string  $string
      * @return string
      */
-    public static function formatCommandString($string)
+    public static function formatCommandString(string $string): string
     {
-        return sprintf('%s %s', static::byticBinary(), $string);
+        return sprintf('%s %s %s', ProcessUtils::escapeArgument(static::phpBinary()), ProcessUtils::escapeArgument(static::byticBinary()), $string);
     }
 }

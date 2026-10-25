@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace ByTIC\Console;
 
 use ByTIC\Console\Output\OutputStyle;
@@ -10,9 +12,8 @@ use Symfony\Component\Console\Output\OutputInterface;
 
 /**
  * Class Command
- * @package ByTIC\Console
  *
- * @method handle
+ * @method mixed handle()
  */
 abstract class Command extends SymfonyCommand
 {
@@ -25,7 +26,7 @@ abstract class Command extends SymfonyCommand
      */
     public function run(InputInterface $input, OutputInterface $output): int
     {
-        $this->output = new OutputStyle($input, $output);
+        $this->output = $output;
         $this->io = new OutputStyle($input, $output);
 
         return parent::run($this->input = $input, $output);
@@ -40,30 +41,42 @@ abstract class Command extends SymfonyCommand
         if (!method_exists($this, 'handle')) {
             throw new LogicException('You must override the execute() method in the concrete command class or write a handle method.');
         }
-        return (int)call_user_func([$this, 'handle']);
+        $result = $this->handle();
+        if ($result !== null && !is_int($result)) {
+            throw new LogicException('Command handle() must return an integer exit status or null.');
+        }
+
+        return $result ?? self::SUCCESS;
     }
 
-
     /**
-     * @inheritDoc
+     * @param mixed $command
      */
-    protected function resolveCommand($command)
+    protected function resolveCommand(mixed $command): SymfonyCommand
     {
-        if (!class_exists($command) && is_string($command)) {
-            return $this->getApplication()->find($command);
-        }
-
-        $command = new $command();
-
         if ($command instanceof SymfonyCommand) {
-            $command->setApplication($this->getApplication());
+            $resolved = $command;
+        } elseif (is_string($command) && is_a($command, SymfonyCommand::class, true)) {
+            $resolved = $this->getContainer()->get($command);
+        } elseif (is_string($command)) {
+            $application = $this->getApplication();
+            if ($application === null) {
+                throw new LogicException('Calling a named command requires a console application.');
+            }
+            $resolved = $application->find($command);
+        } else {
+            throw new LogicException('Expected a Symfony command instance, class name, or registered name.');
         }
 
-//        if ($command instanceof self) {
-//            $command->setLaravel($this->getLaravel());
-//        }
+        if (!$resolved instanceof SymfonyCommand) {
+            throw new LogicException('The container did not resolve a Symfony command.');
+        }
+        $resolved->setApplication($this->getApplication());
+        if ($resolved instanceof self) {
+            $resolved->setContainer($this->getContainer());
+        }
 
-        return $command;
+        return $resolved;
     }
 
 }

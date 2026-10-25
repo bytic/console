@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace ByTIC\Console\Traits;
 
 use Nip\Utility\Str;
@@ -9,50 +11,47 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Question\ChoiceQuestion;
 use Symfony\Component\Console\Question\Question;
-use Symfony\Component\Console\Style\OutputStyle;
+use Symfony\Component\Console\Style\SymfonyStyle;
 
 /**
  * Trait InteractsWithIO
- * @package ByTIC\Console\Traits
  */
 trait InteractsWithIO
 {
-
     /**
      * The input interface implementation.
      *
      * @var \Symfony\Component\Console\Input\InputInterface
      */
-    protected $input;
-
+    protected InputInterface $input;
 
     /**
      * The output interface implementation.
      *
      * @var \Symfony\Component\Console\Output\OutputInterface
      */
-    protected $output;
+    protected OutputInterface $output;
 
     /**
      * The output interface implementation.
      *
-     * @var \ByTIC\Console\Output\OutputStyle
+     * @var SymfonyStyle
      */
-    protected $io;
+    protected SymfonyStyle $io;
 
     /**
      * The default verbosity of output commands.
      *
      * @var int
      */
-    protected $verbosity = OutputInterface::VERBOSITY_NORMAL;
+    protected int $verbosity = OutputInterface::VERBOSITY_NORMAL;
 
     /**
      * The mapping between human readable verbosity levels and Symfony's OutputInterface.
      *
      * @var array
      */
-    protected $verbosityMap = [
+    protected array $verbosityMap = [
         'v' => OutputInterface::VERBOSITY_VERBOSE,
         'vv' => OutputInterface::VERBOSITY_VERY_VERBOSE,
         'vvv' => OutputInterface::VERBOSITY_DEBUG,
@@ -63,10 +62,10 @@ trait InteractsWithIO
     /**
      * Determine if the given argument is present.
      *
-     * @param string|int $name
+     * @param string $name
      * @return bool
      */
-    public function hasArgument($name)
+    public function hasArgument(string $name): bool
     {
         return $this->input->hasArgument($name);
     }
@@ -77,7 +76,7 @@ trait InteractsWithIO
      * @param string|null $key
      * @return string|array|null
      */
-    public function argument($key = null)
+    public function argument(?string $key = null): mixed
     {
         if (is_null($key)) {
             return $this->input->getArguments();
@@ -91,7 +90,7 @@ trait InteractsWithIO
      *
      * @return array
      */
-    public function arguments()
+    public function arguments(): array
     {
         return $this->argument();
     }
@@ -102,7 +101,7 @@ trait InteractsWithIO
      * @param string $name
      * @return bool
      */
-    public function hasOption($name)
+    public function hasOption(string $name): bool
     {
         return $this->input->hasOption($name);
     }
@@ -113,7 +112,7 @@ trait InteractsWithIO
      * @param string|null $key
      * @return string|array|bool|null
      */
-    public function option($key = null)
+    public function option(?string $key = null): mixed
     {
         if (is_null($key)) {
             return $this->input->getOptions();
@@ -127,7 +126,7 @@ trait InteractsWithIO
      *
      * @return array
      */
-    public function options()
+    public function options(): array
     {
         return $this->option();
     }
@@ -139,7 +138,7 @@ trait InteractsWithIO
      * @param bool $default
      * @return bool
      */
-    public function confirm($question, $default = false)
+    public function confirm(string $question, bool $default = false): bool
     {
         return $this->io->confirm($question, $default);
     }
@@ -151,7 +150,7 @@ trait InteractsWithIO
      * @param string|null $default
      * @return mixed
      */
-    public function ask($question, $default = null)
+    public function ask(string $question, ?string $default = null): mixed
     {
         return $this->io->ask($question, $default);
     }
@@ -164,7 +163,7 @@ trait InteractsWithIO
      * @param string|null $default
      * @return mixed
      */
-    public function anticipate($question, $choices, $default = null)
+    public function anticipate(string $question, array|callable $choices, ?string $default = null): mixed
     {
         return $this->askWithCompletion($question, $choices, $default);
     }
@@ -177,7 +176,7 @@ trait InteractsWithIO
      * @param string|null $default
      * @return mixed
      */
-    public function askWithCompletion($question, $choices, $default = null)
+    public function askWithCompletion(string $question, array|callable $choices, ?string $default = null): mixed
     {
         $question = new Question($question, $default);
 
@@ -195,7 +194,7 @@ trait InteractsWithIO
      * @param bool $fallback
      * @return mixed
      */
-    public function secret($question, $fallback = true)
+    public function secret(string $question, bool $fallback = true): mixed
     {
         $question = new Question($question);
 
@@ -210,11 +209,11 @@ trait InteractsWithIO
      * @param string $question
      * @param array $choices
      * @param string|null $default
-     * @param mixed|null $attempts
+     * @param int|null $attempts
      * @param bool $multiple
-     * @return string
+     * @return string|array
      */
-    public function choice($question, array $choices, $default = null, $attempts = null, $multiple = false)
+    public function choice(string $question, array $choices, string|int|null $default = null, ?int $attempts = null, bool $multiple = false): string|array
     {
         $question = new ChoiceQuestion($question, $choices, $default);
 
@@ -227,20 +226,18 @@ trait InteractsWithIO
      * Format input to textual table.
      *
      * @param array $headers
-     * @param \Illuminate\Contracts\Support\Arrayable|array $rows
+     * @param iterable<array> $rows
      * @param string $tableStyle
      * @param array $columnStyles
      * @return void
      */
-    public function table($headers, $rows, $tableStyle = 'default', array $columnStyles = [])
+    public function table($headers, iterable $rows, $tableStyle = 'default', array $columnStyles = []): void
     {
         $table = new Table($this->io);
 
-        if ($rows instanceof Arrayable) {
-            $rows = $rows->toArray();
-        }
+        $rows = is_array($rows) ? $rows : iterator_to_array($rows, false);
 
-        $table->setHeaders((array)$headers)->setRows($rows)->setStyle($tableStyle);
+        $table->setHeaders((array) $headers)->setRows($rows)->setStyle($tableStyle);
 
         foreach ($columnStyles as $columnIndex => $columnStyle) {
             $table->setColumnStyle($columnIndex, $columnStyle);
@@ -256,7 +253,7 @@ trait InteractsWithIO
      * @param int|string|null $verbosity
      * @return void
      */
-    public function info($string, $verbosity = null)
+    public function info(string $string, string|int|null $verbosity = null): void
     {
         $this->line($string, 'info', $verbosity);
     }
@@ -269,7 +266,7 @@ trait InteractsWithIO
      * @param int|string|null $verbosity
      * @return void
      */
-    public function line($string, $style = null, $verbosity = null)
+    public function line(string $string, ?string $style = null, string|int|null $verbosity = null): void
     {
         $styled = $style ? "<$style>$string</$style>" : $string;
 
@@ -283,7 +280,7 @@ trait InteractsWithIO
      * @param int|string|null $verbosity
      * @return void
      */
-    public function comment($string, $verbosity = null)
+    public function comment(string $string, string|int|null $verbosity = null): void
     {
         $this->line($string, 'comment', $verbosity);
     }
@@ -295,7 +292,7 @@ trait InteractsWithIO
      * @param int|string|null $verbosity
      * @return void
      */
-    public function question($string, $verbosity = null)
+    public function question(string $string, string|int|null $verbosity = null): void
     {
         $this->line($string, 'question', $verbosity);
     }
@@ -307,7 +304,7 @@ trait InteractsWithIO
      * @param int|string|null $verbosity
      * @return void
      */
-    public function error($string, $verbosity = null)
+    public function error(string $string, string|int|null $verbosity = null): void
     {
         $this->line($string, 'error', $verbosity);
     }
@@ -319,7 +316,7 @@ trait InteractsWithIO
      * @param int|string|null $verbosity
      * @return void
      */
-    public function warn($string, $verbosity = null)
+    public function warn(string $string, string|int|null $verbosity = null): void
     {
         if (!$this->io->getFormatter()->hasStyle('warning')) {
             $style = new OutputFormatterStyle('yellow');
@@ -336,7 +333,7 @@ trait InteractsWithIO
      * @param string $string
      * @return void
      */
-    public function alert($string)
+    public function alert(string $string): void
     {
         $length = Str::length(strip_tags($string)) + 12;
 
@@ -353,7 +350,7 @@ trait InteractsWithIO
      * @param \Symfony\Component\Console\Input\InputInterface $input
      * @return void
      */
-    public function setInput(InputInterface $input)
+    public function setInput(InputInterface $input): void
     {
         $this->input = $input;
     }
@@ -361,10 +358,10 @@ trait InteractsWithIO
     /**
      * Set the output interface implementation.
      *
-     * @param OutputStyle $io
+     * @param SymfonyStyle $io
      * @return void
      */
-    public function setIo(OutputStyle $io)
+    public function setIo(SymfonyStyle $io): void
     {
         $this->io = $io;
     }
@@ -375,7 +372,7 @@ trait InteractsWithIO
      * @param string|int $level
      * @return void
      */
-    protected function setVerbosity($level)
+    protected function setVerbosity(string|int $level): void
     {
         $this->verbosity = $this->parseVerbosity($level);
     }
@@ -386,9 +383,16 @@ trait InteractsWithIO
      * @param string|int|null $level
      * @return int
      */
-    protected function parseVerbosity($level = null)
+    protected function parseVerbosity(string|int|null $level = null): int
     {
-        if (isset($this->verbosityMap[$level])) {
+        if ($level === 'silent') {
+            if (!defined(OutputInterface::class . '::VERBOSITY_SILENT')) {
+                throw new \InvalidArgumentException('Silent verbosity requires Symfony Console 7.2 or newer.');
+            }
+
+            return constant(OutputInterface::class . '::VERBOSITY_SILENT');
+        }
+        if ($level !== null && isset($this->verbosityMap[$level])) {
             $level = $this->verbosityMap[$level];
         } elseif (!is_int($level)) {
             $level = $this->verbosity;
@@ -400,9 +404,9 @@ trait InteractsWithIO
     /**
      * Get the output implementation.
      *
-     * @return OutputStyle
+     * @return SymfonyStyle
      */
-    public function getIo()
+    public function getIo(): SymfonyStyle
     {
         return $this->io;
     }

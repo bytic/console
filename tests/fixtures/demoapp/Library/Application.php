@@ -1,13 +1,10 @@
 <?php
 
-namespace App\Library;
+declare(strict_types=1);
 
+namespace App\Library;
 
 /**
  * Class Application
- * @package App\Library
  */
-class Application extends \Nip\Application\Application
-{
-
-}
+class Application extends \Nip\Application\Application {}

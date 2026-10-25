@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace ByTIC\Console\Tests\Application;
 
 use ByTIC\Console\Application;
@@ -7,7 +9,6 @@ use ByTIC\Console\Tests\AbstractTest;
 
 /**
  * Class DetectBinaryTest
- * @package ByTIC\Console\Tests\Application
  */
 class DetectBinaryTest extends AbstractTest
 {
@@ -15,6 +16,7 @@ class DetectBinaryTest extends AbstractTest
     {
         $path = Application::byticBinary();
 
-        self::assertStringEndsWith('vendor/bin/bytic', $path);
+        self::assertFileExists($path);
+        self::assertStringEndsWith('bin/bytic', $path);
     }
 }

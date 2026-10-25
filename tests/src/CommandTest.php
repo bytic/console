@@ -1,18 +1,20 @@
 <?php
 
+declare(strict_types=1);
+
 namespace ByTIC\Console\Tests;
 
 /**
  * Class CommandTest
- * @package ByTIC\Console\Tests
  */
 class CommandTest extends AbstractTest
 {
     public function test_load()
     {
-        exec('php ' . PROJECT_BASE_PATH . '/bin/bytic', $output, $return);
+        $process = new \Symfony\Component\Process\Process([PHP_BINARY, PROJECT_BASE_PATH . '/bin/bytic'], sys_get_temp_dir());
+        $process->run();
 
-        self::assertIsArray($output);
-        self::assertStringStartsWith('BYTIC Console', $output[0]);
+        self::assertSame(0, $process->getExitCode(), $process->getErrorOutput());
+        self::assertStringStartsWith('BYTIC Console', $process->getOutput());
     }
 }

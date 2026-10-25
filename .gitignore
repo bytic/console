@@ -1,6 +1,9 @@
 vendor
 
 .phpunit.result.cache
+.phpunit.cache/
+.php-cs-fixer.cache
+.phpstan/
 
 coverage
 coverage.xml

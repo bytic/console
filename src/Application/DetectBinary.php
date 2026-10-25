@@ -1,50 +1,35 @@
 <?php
 
+declare(strict_types=1);
+
 namespace ByTIC\Console\Application;
 
-use ByTIC\Console\Support\ProcessUtils;
 use Symfony\Component\Process\PhpExecutableFinder;
 
-/**
- * Trait DetectBinary
- * @package ByTIC\Console\Application
- */
 trait DetectBinary
 {
-
-    /**
-     * Determine the proper PHP executable.
-     *
-     * @return string
-     */
-    public static function phpBinary()
+    public static function phpBinary(): string
     {
-        return ProcessUtils::escapeArgument((new PhpExecutableFinder)->find(false));
-    }
-
-    /**
-     * Determine the proper Bytic executable.
-     *
-     * @return string
-     */
-    public static function byticBinary()
-    {
-        static $path;
-        if (empty($path)) {
-            $path = static::byticBinaryFinder();
+        $binary = (new PhpExecutableFinder())->find(false);
+        if ($binary === false) {
+            throw new \RuntimeException('Unable to locate a PHP executable.');
         }
-        return $path;
+
+        return $binary;
     }
 
-    /**
-     * @return string
-     */
-    protected static function byticBinaryFinder()
+    public static function byticBinary(): string
     {
         if (defined('BYTIC_BINARY')) {
-            return ProcessUtils::escapeArgument(BYTIC_BINARY);
+            return BYTIC_BINARY;
         }
-        require dirname(dirname(__DIR__)) . '/bootstrap/constants.php';
-        return BYTIC_CONSOLE_ROOT_DIR . DIRECTORY_SEPARATOR . 'vendor' . DIRECTORY_SEPARATOR . 'bin' . DIRECTORY_SEPARATOR . 'bytic';
+        if (defined('BYTIC_CONSOLE_ROOT_DIR')) {
+            $proxy = BYTIC_CONSOLE_ROOT_DIR . DIRECTORY_SEPARATOR . 'vendor' . DIRECTORY_SEPARATOR . 'bin' . DIRECTORY_SEPARATOR . 'bytic';
+            if (is_file($proxy)) {
+                return $proxy;
+            }
+        }
+
+        return dirname(__DIR__, 2) . DIRECTORY_SEPARATOR . 'bin' . DIRECTORY_SEPARATOR . 'bytic';
     }
 }
